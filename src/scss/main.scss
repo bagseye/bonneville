@@ -1,2 +1,39 @@
 
-@import './variables'
+@import './variables';
+
+body {
+    font-family: $sansSerif;
+    color: $black;
+    font-size: 1rem;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    position: relative;
+    -webkit-transition: $transMed;
+    transition: $transMed;
+    color: $black;
+  
+    &::after {
+        content: "";
+        position: absolute;
+        height: 3px;
+        background-color: $primaryColor;
+        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: $transMed;
+        transition: $transMed;
+    }
+
+    &:hover {
+        color: $primaryColor;
+
+        &::after {
+            width: 0;
+            left: 100%;
+        }
+    }
+}
