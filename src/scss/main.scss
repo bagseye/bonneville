@@ -8,32 +8,41 @@ body {
     margin: 0;
 }
 
-a {
-    text-decoration: none;
-    position: relative;
-    -webkit-transition: $transMed;
-    transition: $transMed;
-    color: $black;
-  
-    &::after {
-        content: "";
-        position: absolute;
-        height: 3px;
-        background-color: $primaryColor;
-        width: 100%;
-        left: 0;
-        right: 0;
-        bottom: 0;
+.nav-link {
+
+    font-weight: $heavyWeight;
+    list-style: none;
+    display: inline;
+    
+    a {
+        display: inline-block;
+        text-decoration: none;
+        position: relative;
         -webkit-transition: $transMed;
         transition: $transMed;
-    }
-
-    &:hover {
-        color: $primaryColor;
+        color: $black;
+        line-height: 1.75rem;
 
         &::after {
-            width: 0;
-            left: 100%;
+            content: "";
+            position: absolute;
+            height: 3px;
+            background-color: $primaryColor;
+            width: 100%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            -webkit-transition: $transMed;
+            transition: $transMed;
+        }
+    
+        &:hover {
+            color: $primaryColor;
+    
+            &::after {
+                width: 0;
+                left: 100%;
+            }
         }
     }
 }

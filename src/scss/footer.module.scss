@@ -1,0 +1,31 @@
+@import './variables';
+
+.footer {
+    padding: 1rem 2rem;
+}
+
+.nav-cont {
+
+    padding: 0;
+    margin: 0;
+    
+    li {
+        display: inline;
+        font-weight: $heavyWeight; 
+        padding-right: 0.5rem;
+
+        &::after {
+            content: "/";
+            display: inline-block;
+            padding-left: 0.5rem;
+        }
+
+        &:last-child {
+
+            &::after {
+                display: none;
+            } 
+            
+        }
+    }
+}
