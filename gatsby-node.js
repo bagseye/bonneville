@@ -1,5 +1,19 @@
-exports.createPages = ({ actions }) => {
+const path = require(`path`)
+exports.createPages = async ({ actions, graphql }) => {
     const { createPage } = actions
+    const result = await graphql(`
+        {
+            allMarkdownRemark {
+                edges {
+                    node {
+                        frontmatter {
+                            path
+                        }
+                    }
+                }
+            }
+        }
+    `)
     // Auto generate pages
     // Pages built using templates/page-template.js
     const pageData = [
@@ -31,24 +45,7 @@ exports.createPages = ({ actions }) => {
             context: { page },
         })
     })
-}
 
-const path = require(`path`)
-exports.createPages = async ({ actions, graphql }) => {
-    const { createPage } = actions
-    const result = await graphql(`
-        {
-            allMarkdownRemark {
-                edges {
-                    node {
-                        frontmatter {
-                            path
-                        }
-                    }
-                }
-            }
-        }
-    `)
     if (result.errors) {
         console.error(result.errors)
     }
