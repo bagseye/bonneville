@@ -37,15 +37,7 @@
                     justify-content: flex-end;
 
             li {
-                list-style: none;
-                display: inline;
                 padding-left: 1rem;
-                font-weight: $heavyWeight;
-                
-                a {
-                    display: inline-block;
-                    line-height: 1.75rem;
-                }
             }
         }
     }

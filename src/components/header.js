@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import styles from "../scss/header.module.scss"
 
 const ListLink = props => (
-    <li>
+    <li className="nav-link">
         <Link to={props.to}>{props.children}</Link>
     </li>
 )
