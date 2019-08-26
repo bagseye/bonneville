@@ -6,6 +6,12 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: `Bonneville`,
+    siteUrl: `https://bonneville.netlify.com`,
+    description: `A starter theme for Gatsby`,
+    author: `Morgan Baker`,
+  },
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
