@@ -16,18 +16,18 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Bonneville - Gatsby Starter Theme`,
-        short_name: `Bonneville`,
-        start_url: `/`,
-        background_color: `#0027EC`,
-        theme_color: `#0027EC`,
-        display: `standalone`,
-      },
-    },
-    `gatsby-plugin-offline`,
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Bonneville - Gatsby Starter Theme`,
+    //     short_name: `Bonneville`,
+    //     start_url: `/`,
+    //     background_color: `#0027EC`,
+    //     theme_color: `#0027EC`,
+    //     display: `standalone`,
+    //   },
+    // },
+    // `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
     {
