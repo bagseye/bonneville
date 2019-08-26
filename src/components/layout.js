@@ -7,9 +7,9 @@ import "../scss/main.scss"
 export default ({ children }) => (
     <>
         <Header />
-        <div style={{ margin: `0 auto`, maxWidth: 650, padding: `0 1rem` }}>
+        <main className="main-body">
             {children}
-        </div>
+        </main>
         <Footer />
     </>
 )

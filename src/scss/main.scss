@@ -8,6 +8,19 @@ body {
     margin: 0;
 }
 
+.main-body {
+    padding: 1rem 2rem;
+    max-width: 450px;
+
+    @media(min-width: 768px) {
+        max-width: 600px;
+    }
+
+    @media(min-width: 1200px) {
+        max-width: 1000px;
+    }
+}
+
 .nav-link {
 
     font-weight: $heavyWeight;
