@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
+import styles from "../scss/blog.module.scss"
 
 export default ({ data }) => {
     console.log(data)
@@ -10,13 +11,20 @@ export default ({ data }) => {
             <h1>The Home Page</h1>
             <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
             {data.allMarkdownRemark.edges.map(({ node }) => (
-                <div key={node.id}>
-                    <Link to={node.frontmatter.path}>
-                        <h3>{node.frontmatter.title}</h3>
-                    </Link>
-                    <h4>{node.frontmatter.date}</h4>
-                    <p>{node.excerpt}</p>
-                </div>
+                <article className={styles.item}>
+                    <div className={styles.title}>
+                        <h2>
+                            <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
+                        </h2>
+                    </div>
+                    <div className={styles.content}>
+                        <p>{node.excerpt}</p>
+                        <div className={styles.meta}>
+                            <Link to={node.frontmatter.path}><button className="btn">Read Article</button></Link>
+                            <h4>{node.frontmatter.date}</h4>
+                        </div>
+                    </div>
+                </article>
             ))}
         </Layout>
     )

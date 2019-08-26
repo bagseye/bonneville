@@ -46,3 +46,38 @@ body {
         }
     }
 }
+
+.btn {
+    border: none;
+    background: none;
+    font-family: $sansSerif;
+    font-weight: $heavyWeight;
+    padding: 0;
+    font-size: 1rem;
+    display: inline-block;
+    line-height: 30px;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        height: 3px;
+        background-color: $primaryColor;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: $transMed;
+        transition: $transMed;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        &::after {
+            width: 0;
+            left: 100%;
+        }
+    }
+}
