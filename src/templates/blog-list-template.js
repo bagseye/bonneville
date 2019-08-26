@@ -16,35 +16,37 @@ export default class BlogList extends React.Component {
 
         return (
             <Layout>
-                <h1>Latest News &amp; Posts</h1>
-                {posts.map(({ node }) => {
-                    const title = node.frontmatter.title || node.frontmatter.path
-                    return <article className={styles.item}>
-                        <div className={styles.title}>
-                            <h2>
-                                <Link to={node.frontmatter.path}>{title}</Link>
-                            </h2>
-                        </div>
-                        <div className={styles.content}>
-                            <p>{node.excerpt}</p>
-                            <div className={styles.meta}>
-                                <Link to={node.frontmatter.path}><button className="btn">Read Article</button></Link>
-                                <h4>{node.frontmatter.date}</h4>
+                <div className="blog-list">
+                    <h1>Latest News &amp; Posts</h1>
+                    {posts.map(({ node }) => {
+                        const title = node.frontmatter.title || node.frontmatter.path
+                        return <article className={styles.item}>
+                            <div className={styles.title}>
+                                <h2>
+                                    <Link to={node.frontmatter.path}>{title}</Link>
+                                </h2>
                             </div>
-                        </div>
-                    </article>
-                })}
+                            <div className={styles.content}>
+                                <p>{node.excerpt}</p>
+                                <div className={styles.meta}>
+                                    <Link to={node.frontmatter.path}><button className="btn">Read Article</button></Link>
+                                    <h4>{node.frontmatter.date}</h4>
+                                </div>
+                            </div>
+                        </article>
+                    })}
 
-                {!isFirst && (
-                    <Link to={prevPage} rel="prev">
-                        Previous Page
-                    </Link>
-                )}
-                {!isLast && (
-                    <Link to={nextPage} rel="next">
-                        Next Page
-                    </Link>
-                )}
+                    {!isFirst && (
+                        <Link to={prevPage} rel="prev">
+                            Previous Page
+                        </Link>
+                    )}
+                    {!isLast && (
+                        <Link to={nextPage} rel="next">
+                            Next Page
+                        </Link>
+                    )}
+                </div>
             </Layout>
         )
     }

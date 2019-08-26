@@ -8,8 +8,8 @@ export default ({ data }) => {
 
     return (
         <Layout>
-            <h1>The Home Page</h1>
-            <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+            <h1>This is Bonneville. A starter theme for Gatsby</h1>
+            <h4>{data.allMarkdownRemark.totalCount} Featured Posts</h4>
             {data.allMarkdownRemark.edges.map(({ node }) => (
                 <article className={styles.item}>
                     <div className={styles.title}>

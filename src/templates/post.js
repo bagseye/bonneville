@@ -10,12 +10,12 @@ export default function Template({ data }) {
 
     return (
         <Layout>
-            <main className="blog-post">
+            <div className="blog-post">
                 <h1>{frontmatter.title}</h1>
                 <Img fluid={featuredImgFluid} />
                 <h2>{frontmatter.date}</h2>
                 <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
-            </main>
+            </div>
         </Layout>
     )
 }

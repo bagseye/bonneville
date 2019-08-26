@@ -19,23 +19,23 @@ exports.createPages = async ({ actions, graphql }) => {
     const pageData = [
         {
             name: "profile",
-            title: "Personal Profile"
+            title: "This is the profile page. You can chnage this title in gatsby-node.js"
         },
         {
             name: "contact",
-            title: "Get in Touch"
+            title: "This is the contact page. You can chnage this title in gatsby-node.js"
         },
         {
             name: "privacy",
-            title: "Privacy Policy",
+            title: "This is the privacy page. You can chnage this title in gatsby-node.js",
         },
         {
             name: "cookies",
-            title: "Cookie Consent",
+            title: "This is the cookies page. You can chnage this title in gatsby-node.js",
         },
         {
             name: "404",
-            title: "Oops. This Page Does Not Exist",
+            title: "This is the error page. You can chnage this title in gatsby-node.js",
         },
     ]
     pageData.forEach(page => {
