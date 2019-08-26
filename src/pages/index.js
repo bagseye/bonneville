@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { Helmet } from "react-helmet"
+// import { Helmet } from "react-helmet"
 import Layout from "../components/layout"
 import styles from "../scss/blog.module.scss"
 
@@ -8,12 +8,12 @@ export default ({ data }) => {
     console.log(data)
 
     return (
-        <Helmet>
-            <meta charSet="utf-8" />
-            <title>Bonneville | A Gatsby Starter Theme</title>
-            <link rel="cannonical" href="https://bonneville.netlify.com" />
-            <meta name="description" content="A starter theme for Gatsby JS created by Morgan Baker" />
-        </Helmet>
+        // <Helmet>
+        //     <meta charSet="utf-8" />
+        //     <title>Bonneville | A Gatsby Starter Theme</title>
+        //     <link rel="cannonical" href="https://bonneville.netlify.com" />
+        //     <meta name="description" content="A starter theme for Gatsby JS created by Morgan Baker" />
+        // </Helmet>
         <Layout>
             <h1>This is Bonneville. A starter theme for Gatsby</h1>
             <h4>{data.allMarkdownRemark.totalCount} Featured Posts</h4>
