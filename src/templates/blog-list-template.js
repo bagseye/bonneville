@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
+import Seo from "../components/SEO"
 import "../scss/main.scss"
 import styles from "../scss/blog.module.scss"
 
@@ -16,6 +17,10 @@ export default class BlogList extends React.Component {
 
         return (
             <Layout>
+                <Seo
+                    title="All blog posts"
+                    description="Recent posts from the Bonneville starter theme"
+                />
                 <div className="blog-list">
                     <h1>Latest News &amp; Posts</h1>
                     {posts.map(({ node }) => {

@@ -8,9 +8,11 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: `Bonneville`,
+    titleTemplate: `%s | A starter theme for Gatsby`,
     siteUrl: `https://bonneville.netlify.com`,
     description: `A starter theme for Gatsby`,
     author: `Morgan Baker`,
+    twitterUsername: `@bonneville`,
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -28,7 +30,7 @@ module.exports = {
     //   },
     // },
     // `gatsby-plugin-offline`,
-    // `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
