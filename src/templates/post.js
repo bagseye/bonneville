@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import Seo from "../components/SEO"
 import Img from "gatsby-image"
 
 export default function Template({ data }) {
@@ -10,6 +11,10 @@ export default function Template({ data }) {
 
     return (
         <Layout>
+            <Seo
+                title={frontmatter.title}
+                description={frontmatter.description}
+            />
             <div className="blog-post">
                 <h1>{frontmatter.title}</h1>
                 <Img fluid={featuredImgFluid} />
@@ -27,6 +32,7 @@ export const pageQuery = graphql`
                 date(formatString: "MMMM DD, YYYY")
                 path
                 title
+                description
                 featuredImage {
                     childImageSharp {
                       fluid(maxWidth: 800) {
