@@ -38,6 +38,7 @@ export default ({ children }) => {
                     <ul className={styles.navCont}>
                         <ListLink to="/">Home</ListLink>
                         <ListLink to="/profile/">Profile</ListLink>
+                        <ListLink to="/blog/">Blog</ListLink>
                         <ListLink to="/contact/">Contact</ListLink>
                     </ul>
                 </nav>
