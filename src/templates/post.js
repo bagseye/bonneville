@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/SEO"
 import Img from "gatsby-image"
+import "../scss/main.scss"
 
 export default function Template({ data }) {
     const { markdownRemark } = data // Object destructuring
