@@ -7,11 +7,9 @@ import "typeface-ibm-plex-mono"
 import "../scss/main.scss"
 
 export default ({ children }) => (
-    <>
-        <Header />
-        <main className="main-body">
-            {children}
-        </main>
-        <Footer />
-    </>
+  <>
+    <Header />
+    <main className="main-body">{children}</main>
+    <Footer />
+  </>
 )

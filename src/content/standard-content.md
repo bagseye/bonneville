@@ -9,15 +9,20 @@ featuredImage: ./images/dark-design.jpg
 Standard page content that can be used with this starter.
 
 # Heading 1
+
 ## Heading 2
+
 ### Heading 3
+
 #### Heading 4
+
 ##### Heading 5
+
 ###### Heading 6
 
 **bold text**
 
-*italic text*
+_italic text_
 
 > This is an example of a blockquote. Use this to make content stand out
 
@@ -35,7 +40,7 @@ Standard page content that can be used with this starter.
 
 ---
 
-| Syntax | Description |
-| ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text | 
+| Syntax    | Description |
+| --------- | ----------- |
+| Header    | Title       |
+| Paragraph | Text        |

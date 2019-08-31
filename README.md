@@ -4,8 +4,8 @@
 </h1>
 
 ## Please Note
-This repo is a WIP. Updates will happen throughout the life of this project as I understand working with Gatsby and React. If issues are raised, I will answer and resolve them when time allows.
 
+This repo is a WIP. Updates will happen throughout the life of this project as I understand working with Gatsby and React. If issues are raised, I will answer and resolve them when time allows.
 
 ## 🚀 Quick start
 
