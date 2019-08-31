@@ -27,6 +27,7 @@ module.exports = {
         background_color: `#0027EC`,
         theme_color: `#0027EC`,
         display: `standalone`,
+        icon: `static/favicon.ico`,
       },
     },
     `gatsby-plugin-react-helmet`,
