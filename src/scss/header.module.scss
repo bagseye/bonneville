@@ -71,11 +71,52 @@
 
     .logo-cont {
 
+        display: -webkit-box;
+
+        display: -ms-flexbox;
+
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         z-index: 3;
 
         a {
             display: inline-block;
             line-height: 2.5rem;
+            color: $black;
+            text-decoration: none;
+            -webkit-transition: $transMed;
+            transition: $transMed;
+            position: relative;
+
+            &::after {
+                content: "";
+                background-color: $primaryColor;
+                height: 3px;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                -webkit-transition: $transMed;
+                transition: $transMed;
+            }
+
+            &:hover {
+                color: $primaryColor;
+
+                &::after {
+                    left: 100%;
+                    width: 0;
+                }
+            }
+
+
         }
 
         h2 {
