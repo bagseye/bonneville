@@ -1,0 +1,144 @@
+h1 {
+    margin: 3rem 0;
+}
+
+
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 1.25rem 0;
+}
+
+hr,
+blockquote,
+table,
+ol,
+ul {
+    margin: 2.5rem 0;
+}
+
+h1 {
+    font-size: 2rem;
+
+    @media(min-width: 768px) {
+        font-size: 2.6rem;
+    }
+
+    @media(min-width: 1200px) {
+        font-size: 3rem; 
+    }
+}
+
+h2 {
+    font-size: 1.8rem;
+
+    @media(min-width: 768px) {
+        font-size: 2.4rem;
+    }
+
+    @media(min-width: 1200px) {
+        font-size: 2.8rem; 
+    }
+}
+
+h3 {
+    font-size: 1.6rem;
+
+    @media(min-width: 768px) {
+        font-size: 2.2rem;
+    }
+
+    @media(min-width: 1200px) {
+        font-size: 2.6rem; 
+    }
+}
+
+h4 {
+    font-size: 1.4rem;
+
+    @media(min-width: 768px) {
+        font-size: 2rem;
+    }
+
+    @media(min-width: 1200px) {
+        font-size: 2.4rem; 
+    }
+}
+
+h5 {
+    font-size: 1.2rem;
+
+    @media(min-width: 768px) {
+        font-size: 1.8rem;
+    }
+
+    @media(min-width: 1200px) {
+        font-size: 2.2rem; 
+    }
+}
+
+h6 {
+    font-size: 1rem;
+
+    @media(min-width: 768px) {
+        font-size: 1.6rem;
+    }
+
+    @media(min-width: 1200px) {
+        font-size: 2rem; 
+    }
+}
+
+blockquote {
+    border-left: 3px solid $primaryColor;
+    padding: 1rem 2rem;
+    background-color: $lightGrey;
+    border-radius: 0.25rem;
+    width: 100%;
+    max-width: 500px;
+    font-size: 1.25rem;
+    font-family: $serif;
+    font-style: italic;
+    color: $darkGrey;
+}
+
+hr {
+    border: 2px solid $lightGrey;
+}
+
+ul,
+ol {
+    li {
+        &::marker {
+            font-family: $serif;
+            color: $primaryColor;
+        }
+    }
+}
+
+code {
+    font-family: $mono;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: $lightGrey;
+}
+
+table {
+    thead {
+        
+        color: #fff;
+        background-color: $primaryColor;
+    }
+
+    th,
+    td {
+        padding: 0.5rem 1rem;
+    }
+
+    tbody {
+        background-color: $lightGrey;
+    }
+}

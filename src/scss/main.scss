@@ -1,0 +1,100 @@
+
+@import './variables', './content';
+
+body {
+    font-family: $sansSerif;
+    color: $black;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.main-body {
+    padding: 4rem 2rem 1rem 2rem;
+    max-width: 450px;
+
+    @media(min-width: 768px) {
+        padding: 6rem 2rem 1rem 2rem;
+        max-width: 600px;
+
+    }
+
+    @media(min-width: 1200px) {
+        max-width: 1000px;
+    }
+}
+
+.nav-link {
+
+    font-weight: $heavyWeight;
+    list-style: none;
+    display: inline;
+    
+    a {
+        display: inline-block;
+        text-decoration: none;
+        position: relative;
+        -webkit-transition: $transMed;
+        transition: $transMed;
+        color: $black;
+        line-height: 1.75rem;
+
+        &::after {
+            content: "";
+            position: absolute;
+            height: 3px;
+            background-color: $primaryColor;
+            width: 100%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            -webkit-transition: $transMed;
+            transition: $transMed;
+        }
+    
+        &:hover {
+            color: $primaryColor;
+    
+            &::after {
+                width: 0;
+                left: 100%;
+            }
+        }
+    }
+}
+
+.btn {
+    color: $black;
+    text-decoration: none;
+    border: none;
+    background: none;
+    font-family: $sansSerif;
+    font-weight: $heavyWeight;
+    padding: 0;
+    font-size: 1rem;
+    display: inline-block;
+    line-height: 30px;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        height: 3px;
+        background-color: $primaryColor;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: $transMed;
+        transition: $transMed;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        &::after {
+            width: 0;
+            left: 100%;
+        }
+    }
+}

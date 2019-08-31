@@ -1,17 +1,39 @@
 import React from "react"
-import { Link } from "gatsby"
+import { useStaticQuery, Link, graphql } from "gatsby"
+import styles from "../scss/footer.module.scss"
 
-const ListLink = props => (
-    <li>
-        <Link to={props.to}>{props.children}</Link>
-    </li>
-)
+export default ({ children }) => {
 
-export default () => (
-    <footer>
-        <ul>
-            <ListLink to="/privacy/">Privacy</ListLink>
-            <ListLink to="/cookies/">Cookies</ListLink>
-        </ul>
-    </footer>
-)
+    const ListLink = props => (
+        <li className="nav-link">
+            <Link to={props.to}>{props.children}</Link>
+        </li>
+    )
+
+    const showYear = new Date().getFullYear();
+
+    const data = useStaticQuery(
+        graphql`
+            query {
+                site {
+                    siteMetadata {
+                        author
+                    }
+                }
+            }
+        `
+    )
+
+    return (
+        <footer className={styles.footer}>
+            <ul className={styles.navCont}>
+                <li>&copy; {showYear}</li>
+                <li>{data.site.siteMetadata.author}</li>
+                <ListLink to="/privacy/">Privacy</ListLink>
+                <ListLink to="/cookies/">Cookies</ListLink>
+            </ul>
+        </footer>
+    )
+}
+
+

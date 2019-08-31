@@ -1,0 +1,124 @@
+@import "./variables";
+
+.item {
+    padding: 1rem 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+
+    .title {
+
+        h2 {
+            display: inline-block;
+            position: relative;
+            line-height: 2.25rem;
+            font-size: 1.5rem;
+    
+            a {
+                color: $black;
+                display: block;
+                text-decoration: none;
+                -webkit-transition: $transMed;
+                transition: $transMed; 
+                
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 3px;
+                    background-color: $primaryColor;
+                    -webkit-transition: $transMed;
+                    transition: $transMed; 
+    
+                }
+                
+                &:hover {
+    
+                    color: $primaryColor;
+                    
+                    &::after {
+                        left: 100%;
+                        width: 0;
+                    }
+                }
+            }
+    
+        }
+    }
+
+
+
+    .meta {
+        padding: 1rem 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+
+        h4 {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 30px;
+        }
+
+    }
+
+    
+}
+
+.feature {
+    font-size: 1.2rem;
+}
+
+@media(min-width: 768px) {
+
+    .item {
+
+        -webkit-box-orient: horizontal;
+
+        -webkit-box-direction: normal;
+
+            -ms-flex-direction: row;
+
+                flex-direction: row;
+
+        .title {
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+            padding-right: 2rem;
+            width: 50%;
+
+            h2 {
+                margin: 0;
+                font-size: 1.75rem;
+            }
+        }
+
+        .content {
+            width: 48%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+
+            p {
+                margin-top: 0;
+            }
+        }
+
+    }
+
+}
