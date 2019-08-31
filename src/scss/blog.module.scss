@@ -16,6 +16,7 @@
             display: inline-block;
             position: relative;
             line-height: 2.25rem;
+            font-size: 1.5rem;
     
             a {
                 color: $black;
@@ -75,6 +76,10 @@
     
 }
 
+.feature {
+    font-size: 1.2rem;
+}
+
 @media(min-width: 768px) {
 
     .item {
@@ -88,10 +93,14 @@
                 flex-direction: row;
 
         .title {
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+            padding-right: 2rem;
             width: 50%;
 
             h2 {
                 margin: 0;
+                font-size: 1.75rem;
             }
         }
 

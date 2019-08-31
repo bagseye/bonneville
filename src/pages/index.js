@@ -11,7 +11,7 @@ export default ({ data }) => {
         <Layout>
             <Seo />
             <h1>My name is Bonneville. I'm a starter theme for Gatsby and I like to talk as if I am a living thing</h1>
-            <h4>{data.allMarkdownRemark.totalCount} Featured Posts</h4>
+            <h4 className={styles.feature}>{data.allMarkdownRemark.totalCount} Featured Posts</h4>
             {data.allMarkdownRemark.edges.map(({ node }) => (
                 <article className={styles.item}>
                     <div className={styles.title}>

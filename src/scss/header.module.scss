@@ -46,6 +46,7 @@
     .header {
         button {
             z-index: 3;
+            font-size: 1.15rem;
         }
 
     }
@@ -122,6 +123,11 @@
 
         h2 {
             margin: 0;
+            font-size: 1.5rem;
+
+            @media(min-width: 768px) {
+                font-size: 1.75rem;
+            }
         }
     }
 
@@ -147,6 +153,7 @@
                 padding-left: 2rem;
                 margin-top: 1rem;
                 margin-bottom: 1rem;
+                font-size: 1.15rem;
             }
         }
 
@@ -158,7 +165,7 @@
                     align-items: center;
                     
                 li {
-                    padding-left: 1rem;
+                    padding-left: 2rem;
                     -webkit-box-pack: end;
                 -ms-flex-pack: end;
                     justify-content: flex-end;
