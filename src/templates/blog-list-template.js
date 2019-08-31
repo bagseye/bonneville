@@ -42,12 +42,12 @@ export default class BlogList extends React.Component {
                     })}
 
                     {!isFirst && (
-                        <Link to={prevPage} rel="prev">
+                        <Link className="btn" to={prevPage} rel="prev">
                             Previous Page
                         </Link>
                     )}
                     {!isLast && (
-                        <Link to={nextPage} rel="next">
+                        <Link className="btn" to={nextPage} rel="next">
                             Next Page
                         </Link>
                     )}
