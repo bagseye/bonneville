@@ -1,13 +1,77 @@
 @import "./variables";
 
+
+@media(max-width: 767px) {
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        background-color: #fff;
+        z-index: 2; 
+        -webkit-transform: translateX(100%); 
+                transform: translateX(100%);
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+
+        ul {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+        }
+    }
+    
+    .menu-open {
+
+        position: relative;
+        z-index: 2;
+
+        .nav {
+            -webkit-transform: translateX(0%);
+                    transform: translateX(0%);
+            
+        }
+
+    }
+
+    .header {
+        button {
+            z-index: 3;
+        }
+
+    }
+}
+
 .header {
-    display: grid;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     grid-template-columns: 200px auto;
     grid-gap: 1rem;
     padding: 1rem 2rem;
+    width: 100%;
+    background-color: #fff;
 
     .logo-cont {
-        grid-column: 1 / 2;
+
+        z-index: 3;
 
         a {
             display: inline-block;
@@ -19,8 +83,14 @@
         }
     }
 
+    @media(min-width: 768px) {
+        button {
+            display: none;
+        }
+
+    }
+
     .nav {
-        grid-column: 2 / 3;
 
         .nav-cont {
             height: 100%;
@@ -29,15 +99,28 @@
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
-            -webkit-box-pack: end;
-                -ms-flex-pack: end;
-                    justify-content: flex-end;
+            
 
             li {
-                padding-left: 1rem;
+                padding-left: 2rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media(min-width: 768px) {
+            .nav-cont {
+
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+                    
+                li {
+                    padding-left: 1rem;
+                    -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                    justify-content: flex-end;
+                }
             }
         }
     }
