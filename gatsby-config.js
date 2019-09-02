@@ -13,6 +13,8 @@ module.exports = {
     description: `A starter theme for Gatsby`,
     author: `Morgan Baker`,
     twitterUsername: `@bonneville`,
+    twitterURL: `https://twitter.com/`,
+    githubURL: `https://github.com/bagseye`,
   },
   plugins: [
     `gatsby-plugin-sass`,
