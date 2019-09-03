@@ -35,6 +35,13 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     // `gatsby-plugin-offline`,
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "ENTER YOUR GA TRACKING ID HERE",
+        head: false,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
