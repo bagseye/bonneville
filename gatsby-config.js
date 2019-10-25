@@ -13,6 +13,8 @@ module.exports = {
     description: `A starter theme for Gatsby`,
     author: `Morgan Baker`,
     twitterUsername: `@bonneville`,
+    twitterURL: `https://twitter.com/`,
+    githubURL: `https://github.com/bagseye`,
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -33,6 +35,13 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     // `gatsby-plugin-offline`,
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "ENTER YOUR GA TRACKING ID HERE",
+        head: false,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -45,6 +54,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
