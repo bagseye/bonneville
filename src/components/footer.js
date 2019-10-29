@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, Link, graphql } from "gatsby"
-import { DiGithubBadge } from "react-icons/di"
-import { FaTwitter } from "react-icons/fa"
+import socials from "../constants/social-icons"
 
 export default ({ children }) => {
   const ListLink = props => (
@@ -19,8 +18,6 @@ export default ({ children }) => {
         site {
           siteMetadata {
             author
-            twitterURL
-            githubURL
           }
         }
       }
@@ -93,16 +90,15 @@ export default ({ children }) => {
           <ListLink to="/cookies/">Cookies</ListLink>
         </ul>
         <ul className="socials">
-          <li>
-            <a href={data.site.siteMetadata.twitterURL}>
-              <FaTwitter />
-            </a>
-          </li>
-          <li>
-            <a href={data.site.siteMetadata.githubURL}>
-              <DiGithubBadge />
-            </a>
-          </li>
+          {socials.map((item, index) => {
+            return (
+              <li>
+                <a key={index} href={item.url}>
+                  {item.icon}
+                </a>
+              </li>
+            )
+          })}
         </ul>
       </footer>
     </FooterCont>
