@@ -14,6 +14,7 @@ module.exports = {
     author: `Morgan Baker`,
     twitterUsername: `@bonneville`,
     twitterURL: `https://twitter.com/`,
+    linkedInURL: `https://www.linkedin.com/in/morgan-baker-developer-inverness`,
     githubURL: `https://github.com/bagseye`,
   },
   plugins: [
