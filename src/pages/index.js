@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import styles from "../scss/blog.module.scss"
 import Seo from "../components/SEO"
+import Button from "../components/Button/button"
 
 export default ({ data }) => {
   console.log(data)
@@ -27,8 +28,8 @@ export default ({ data }) => {
           <div className={styles.content}>
             <p>{node.excerpt}</p>
             <div className={styles.meta}>
-              <Link to={node.frontmatter.path}>
-                <button className="btn">Read Article</button>
+              <Link className="btn-link" to={node.frontmatter.path}>
+                <Button />
               </Link>
               <h4>{node.frontmatter.date}</h4>
             </div>
