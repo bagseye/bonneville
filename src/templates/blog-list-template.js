@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/SEO"
 import "../scss/main.scss"
+import Button from "../components/Button/button"
 import styles from "../scss/blog.module.scss"
 
 export default class BlogList extends React.Component {
@@ -36,8 +37,8 @@ export default class BlogList extends React.Component {
                 <div className={styles.content}>
                   <p>{node.excerpt}</p>
                   <div className={styles.meta}>
-                    <Link to={node.frontmatter.path}>
-                      <button className="btn">Read Article</button>
+                    <Link className="btn-link" to={node.frontmatter.path}>
+                      <Button />
                     </Link>
                     <h4>{node.frontmatter.date}</h4>
                   </div>

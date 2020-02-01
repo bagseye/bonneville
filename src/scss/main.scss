@@ -79,6 +79,10 @@ body {
   line-height: 30px;
   position: relative;
 
+  &-link {
+    text-decoration: none;
+  }
+
   &::after {
     content: "";
     display: block;
