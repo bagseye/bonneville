@@ -1,17 +1,19 @@
 // Colors
-$black: #111;
-$lightGrey: rgba(0,0,0,0.1);
-$darkGrey: rgba(0,0,0,0.8);
-$primaryColor: #0027EC;
+$black: #2d2828;
+$lightGrey: rgba(0, 0, 0, 0.1);
+$darkGrey: rgba(0, 0, 0, 0.8);
+$primaryColor: #0027ec;
 
 // Transitions
 $transMed: 0.3s;
 
 // Typography
-$sansSerif: 'Roboto', sans-serif;
-$serif: 'Playfair Display', serif;
-$mono: 'IBM Plex Mono', monospace;
+$sansSerif: "Lato", sans-serif;
+$serif: "Playfair Display", serif;
+$mono: "IBM Plex Mono", monospace;
 $heavyWeight: 900;
+$regular: 400;
+$medium: 500;
 
 h1,
 h2,
@@ -19,11 +21,11 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $sansSerif;
+  font-family: $serif;
 }
 
 h1,
 h2,
 h3 {
-    font-weight: $heavyWeight;
+  font-weight: $regular;
 }

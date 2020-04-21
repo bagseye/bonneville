@@ -1,7 +1,7 @@
 {
   "name": "bonneville",
   "private": true,
-  "description": "A starter blog template for Gatsby",
+  "description": "A starter blog template for use with GatsbyJS",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -14,12 +14,12 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
-    "gatsby": "^2.13.73",
-    "gatsby-image": "^2.2.14",
+    "gatsby": "^2.19.49",
+    "gatsby-image": "^2.2.45",
     "gatsby-plugin-google-analytics": "^2.1.13",
     "gatsby-plugin-manifest": "^2.2.9",
     "gatsby-plugin-offline": "^2.2.10",
-    "gatsby-plugin-react-helmet": "^3.1.5",
+    "gatsby-plugin-react-helmet": "^3.1.24",
     "gatsby-plugin-sass": "^2.1.12",
     "gatsby-plugin-sharp": "^2.2.18",
     "gatsby-plugin-sitemap": "^2.2.10",
@@ -28,19 +28,21 @@
     "gatsby-source-filesystem": "^2.1.18",
     "gatsby-transformer-remark": "^2.6.19",
     "gatsby-transformer-sharp": "^2.2.12",
-    "node-sass": "^4.12.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "minimist": "^1.2.5",
+    "node-sass": "^4.13.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
     "serialize-javascript": "^2.1.2",
     "styled-components": "^4.4.0",
     "typeface-ibm-plex-mono": "0.0.61",
+    "typeface-lato": "0.0.75",
     "typeface-playfair-display": "0.0.72",
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^1.19.1"
   },
   "repository": {
     "type": "git",

@@ -17,6 +17,10 @@ body {
 .main-body {
   padding: 4rem 2rem 1rem 2rem;
   max-width: 450px;
+  margin: {
+    left: auto;
+    right: auto;
+  }
 
   @media (min-width: 768px) {
     padding: 6rem 2rem 1rem 2rem;
@@ -42,21 +46,8 @@ body {
     color: $black;
     line-height: 1.75rem;
 
-    &::after {
-      content: "";
-      position: absolute;
-      height: 3px;
-      background-color: $primaryColor;
-      width: 100%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      -webkit-transition: $transMed;
-      transition: $transMed;
-    }
-
     &:hover {
-      color: $primaryColor;
+      color: #939393;
 
       &::after {
         width: 0;
@@ -71,8 +62,7 @@ body {
   text-decoration: none;
   border: none;
   background: none;
-  font-family: $sansSerif;
-  font-weight: $heavyWeight;
+  font-family: $serif;
   padding: 0;
   font-size: 1rem;
   display: inline-block;
@@ -83,26 +73,7 @@ body {
     text-decoration: none;
   }
 
-  &::after {
-    content: "";
-    display: block;
-    height: 3px;
-    background-color: $primaryColor;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-transition: $transMed;
-    transition: $transMed;
-  }
-
   &:hover {
     cursor: pointer;
-
-    &::after {
-      width: 0;
-      left: 100%;
-    }
   }
 }

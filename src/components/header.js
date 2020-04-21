@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import "../scss/main.scss"
+import Logo from "../content/images/bonneville-logo.svg"
 
 export default ({ children }) => {
   const [menuStatus, menuChange] = useState(false)
@@ -88,25 +89,17 @@ export default ({ children }) => {
           transition: var(--transMed);
           position: relative;
 
-          &::after {
-            content: "";
-            background-color: var(--primaryColor);
-            height: 3px;
-            width: 100%;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            transition: var(--transMed);
-          }
-
           &:hover {
             color: var(--primaryColor);
+          }
+        }
 
-            &::after {
-              left: 100%;
-              width: 0;
-            }
+        img {
+          vertical-align: middle;
+          width: 125px;
+
+          @media (min-width: 768px) {
+            width: 150px;
           }
         }
 
@@ -137,6 +130,8 @@ export default ({ children }) => {
             margin-top: 1rem;
             margin-bottom: 1rem;
             font-size: 1.15rem;
+            font-family: "Playfair Display";
+            font-weight: 300;
           }
         }
 
@@ -159,7 +154,7 @@ export default ({ children }) => {
         <header className="header-cont">
           <div className="logo-cont">
             <Link to="/">
-              <h2>{data.site.siteMetadata.title}</h2>
+              <img src={Logo} />
             </Link>
           </div>
           <button className="btn" onClick={() => menuChange(!menuStatus)}>

@@ -51,6 +51,8 @@ export default ({ children }) => {
       .nav-cont {
         padding: 0;
         margin: 0 0 1rem 0;
+        font-family: "Playfair Display";
+        font-weight: 300;
 
         @media (min-width: 768px) {
           margin-bottom: 0;
@@ -60,12 +62,15 @@ export default ({ children }) => {
         li {
           display: inline;
           padding-right: 0.5rem;
-          font-weight: var(--heavyWeight);
 
           &::after {
             content: "/";
             display: inline-block;
             padding-left: 0.5rem;
+          }
+
+          a {
+            font-weight: 300;
           }
         }
       }
