@@ -1,4 +1,9 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+<p align="center">
+  <a href="https://bonneville.netlify.app">
+    <img alt="Bonneville Logo" src="/src/content/images/bonneville-logo.svg" width="200" />
+  </a>
+</p>
 <h1 align="center">
   Bonneville - A Gatsby Starter Blog
 </h1>
