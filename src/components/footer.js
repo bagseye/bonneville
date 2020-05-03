@@ -18,6 +18,7 @@ export default ({ children }) => {
         site {
           siteMetadata {
             author
+            authorSite
           }
         }
       }
@@ -71,6 +72,15 @@ export default ({ children }) => {
 
           a {
             font-weight: 300;
+            text-decoration: none;
+            color: var(--black);
+            transition: var(--transMed);
+          }
+
+          &:hover {
+            a {
+              color: var(--primaryColor);
+            }
           }
         }
       }
@@ -117,7 +127,15 @@ export default ({ children }) => {
       <footer>
         <ul className="nav-cont">
           <li>&copy; {showYear}</li>
-          <li>{data.site.siteMetadata.author}</li>
+          <li>
+            <a
+              href={data.site.siteMetadata.authorSite}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {data.site.siteMetadata.author}
+            </a>
+          </li>
           <ListLink to="/privacy/">Privacy</ListLink>
           <ListLink to="/cookies/">Cookies</ListLink>
         </ul>

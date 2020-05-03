@@ -12,6 +12,7 @@ module.exports = {
     siteUrl: `https://bonneville.netlify.com`,
     description: `A starter theme for Gatsby`,
     author: `Morgan Baker`,
+    authorSite: `https://www.morganbaker.dev`,
     twitterUsername: `@bonneville`,
     twitterURL: `https://twitter.com/`,
     linkedInURL: `https://www.linkedin.com/in/morgan-baker-developer-inverness`,
