@@ -34,7 +34,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
-    "serialize-javascript": "^2.1.2",
+    "serialize-javascript": "^3.1.0",
     "styled-components": "^4.4.0",
     "typeface-ibm-plex-mono": "0.0.61",
     "typeface-lato": "0.0.75",
