@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
-    "gatsby": "^2.19.49",
+    "gatsby": "^2.24.47",
     "gatsby-image": "^2.2.45",
     "gatsby-plugin-google-analytics": "^2.1.13",
     "gatsby-plugin-manifest": "^2.2.9",
@@ -29,7 +29,7 @@
     "gatsby-transformer-remark": "^2.6.19",
     "gatsby-transformer-sharp": "^2.2.12",
     "minimist": "^1.2.5",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
