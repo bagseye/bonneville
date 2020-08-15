@@ -9,8 +9,9 @@ module.exports = {
   siteMetadata: {
     title: `Bonneville`,
     titleTemplate: `%s | A starter theme for Gatsby`,
-    siteUrl: `https://bonneville.netlify.com`,
     description: `A starter theme for Gatsby`,
+    siteUrl: `https://bonneville.netlify.com`,
+    image: `/images/color.jpg`,
     author: `Morgan Baker`,
     authorSite: `https://www.morganbaker.dev`,
     twitterUsername: `@bonneville`,
