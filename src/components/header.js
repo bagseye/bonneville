@@ -154,7 +154,7 @@ export default ({ children }) => {
         <header className="header-cont">
           <div className="logo-cont">
             <Link to="/">
-              <img src={Logo} alt="Bonneville logo" />
+              <img src={Logo} alt={data.site.siteMetadata.title} />
             </Link>
           </div>
           <button className="btn" onClick={() => menuChange(!menuStatus)}>

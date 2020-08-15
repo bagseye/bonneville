@@ -146,8 +146,8 @@ export default ({ children }) => {
           <ul className="socials">
             {socials.map((item, index) => {
               return (
-                <li>
-                  <a key={index} href={item.url}>
+                <li key={index}>
+                  <a href={item.url}>
                     <span className="sr-only">{item.name}</span>
                     {item.icon}
                   </a>

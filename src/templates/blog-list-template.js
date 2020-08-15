@@ -28,7 +28,7 @@ export default class BlogList extends React.Component {
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.frontmatter.path
             return (
-              <article className={styles.item}>
+              <article key={node.key} className={styles.item}>
                 <div className={styles.title}>
                   <h2>
                     <Link to={node.frontmatter.path}>{title}</Link>
