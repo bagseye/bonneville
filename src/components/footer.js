@@ -148,6 +148,7 @@ export default ({ children }) => {
               return (
                 <li>
                   <a key={index} href={item.url}>
+                    <span className="sr-only">{item.name}</span>
                     {item.icon}
                   </a>
                 </li>
