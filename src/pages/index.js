@@ -19,7 +19,7 @@ export default ({ data }) => {
         {data.allMarkdownRemark.totalCount} Featured Posts
       </h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <article className={styles.item}>
+        <article key={node.key} className={styles.item}>
           <div className={styles.title}>
             <h2>
               <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
