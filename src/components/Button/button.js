@@ -2,10 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { FaChevronRight } from "react-icons/fa"
 
-const Button = () => {
+const Button = props => {
   return (
-    <ButtonWrapper>
-      Read Article <FaChevronRight className="arrow" />
+    <ButtonWrapper type={props.type}>
+      {props.text ? props.text : "Read Article"}{" "}
+      <FaChevronRight className="arrow" />
     </ButtonWrapper>
   )
 }
