@@ -57,19 +57,19 @@ const BlogContent = styled.div`
   }
 `
 
-const BlogList = props => {
+const BlogList = ({ key, title, excerpt, path, date }) => {
   return (
-    <BlogItem key={props.key}>
+    <BlogItem key={key}>
       <BlogTitle>
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
       </BlogTitle>
       <BlogContent>
-        <p>{props.excerpt}</p>
+        <p>{excerpt}</p>
         <BlogMeta>
-          <Link className="btn-link" to={props.path}>
+          <Link className="btn-link" to={path}>
             <Button />
           </Link>
-          <h4>{props.date}</h4>
+          <h4>{date}</h4>
         </BlogMeta>
       </BlogContent>
     </BlogItem>

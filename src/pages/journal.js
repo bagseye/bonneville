@@ -5,9 +5,10 @@ import { graphql } from "gatsby"
 import BlogItem from "../components/Blog/blog-item"
 
 const Journal = ({ data }) => {
+  const { edges } = data.allMarkdownRemark
   return (
     <>
-      <SEO />
+      <SEO title="Read more about the projects at Bonneville" />
       <Layout>
         <h1>Bonneville Journal</h1>
         <p>
@@ -17,7 +18,7 @@ const Journal = ({ data }) => {
           eu. Curabitur mauris risus, pretium et est at, consequat venenatis
           sem. Phasellus vehicula ligula id mauris facilisis bibendum.
         </p>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
+        {edges.map(({ node }) => (
           <BlogItem
             title={node.frontmatter.title}
             excerpt={node.excerpt}
