@@ -1,11 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import styles from "../scss/blog.module.scss"
 import Seo from "../components/SEO"
 import BlogItem from "../components/Blog/blog-item"
+import styled from "styled-components"
+
+const FeaturedItems = styled.h4`
+  font-size: 1.2rem;
+  color: #939393;
+`
 
 export default ({ data }) => {
+  const { allMarkdownRemark } = data
   return (
     <Layout>
       <Seo />
@@ -13,10 +19,10 @@ export default ({ data }) => {
         My name is Bonneville. I'm a starter theme for Gatsby and I like to talk
         as if I am a living thing
       </h1>
-      <h4 className={styles.feature}>
-        {data.allMarkdownRemark.totalCount} Featured Posts
-      </h4>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
+      <FeaturedItems>
+        {allMarkdownRemark.totalCount} Featured Posts
+      </FeaturedItems>
+      {allMarkdownRemark.edges.map(({ node }) => (
         <BlogItem
           title={node.frontmatter.title}
           excerpt={node.excerpt}
