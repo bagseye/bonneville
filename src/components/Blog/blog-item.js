@@ -2,6 +2,15 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import Button from "../../components/Button/button"
+import Img from "gatsby-image"
+
+const BlogImage = styled.div`
+  flex: 0 0 100%;
+
+  @media (min-width: 768px) {
+    margin-bottom: 1rem;
+  }
+`
 
 const BlogItem = styled.article`
   padding: 1rem 0;
@@ -10,6 +19,7 @@ const BlogItem = styled.article`
 
   @media (min-width: 768px) {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 `
 
@@ -57,9 +67,12 @@ const BlogContent = styled.div`
   }
 `
 
-const BlogList = ({ key, title, excerpt, path, date }) => {
+const BlogList = ({ key, fluid, title, excerpt, path, date, alt }) => {
   return (
     <BlogItem key={key}>
+      <BlogImage>
+        <Img fluid={fluid} alt={alt} />
+      </BlogImage>
       <BlogTitle>
         <h2>{title}</h2>
       </BlogTitle>

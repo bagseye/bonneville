@@ -58,6 +58,7 @@ const JournalTemplate = props => {
         </p>
         {edges.map(({ node }) => (
           <BlogItem
+            fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
             title={node.frontmatter.title}
             excerpt={node.excerpt}
             path={node.frontmatter.path}
@@ -119,6 +120,13 @@ export const journalQuery = graphql`
             title
             date(formatString: "MMMM DD, YY")
             path
+            featuredImage {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt
         }

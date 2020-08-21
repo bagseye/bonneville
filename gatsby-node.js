@@ -1,4 +1,5 @@
 const path = require(`path`)
+const { NONAME } = require("dns")
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
   const result = await graphql(`
@@ -52,6 +53,9 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: node.frontmatter.path,
       component: path.resolve(`src/templates/post.js`),
+      context: {
+        slug: node.frontmatter.path,
+      },
     })
   })
 
