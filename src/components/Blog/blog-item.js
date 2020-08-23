@@ -31,13 +31,13 @@ const BlogImage = styled.div`
 
   figure {
     margin: 0;
-    /* opacity: 1; */
+    opacity: 1;
     transition: transform var(--transSlow), opacity var(--transSlow);
   }
 
   &:hover {
     figure {
-      /* opacity: 0.5; */
+      opacity: 0.5;
       transform: scale(1.1);
     }
   }
