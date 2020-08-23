@@ -1,41 +1,45 @@
 import React from "react"
 import styled from "styled-components"
-import { FaChevronRight } from "react-icons/fa"
 
 const Button = props => {
   return (
     <ButtonWrapper type={props.type}>
       {props.text ? props.text : "Read Article"}{" "}
-      <FaChevronRight className="arrow" />
     </ButtonWrapper>
   )
 }
 
 const ButtonWrapper = styled.button`
-  border: 1px solid #aaa;
-  border-radius: 3px;
+  border: none;
   background-color: transparent;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  padding: 0.75rem 1rem;
+  font-size: var(--h5);
+  padding: 0;
   display: flex;
-  font-weight: 400;
-  font-family: "Roboto";
-  transition: 0.3s;
-  color: #3e3e3e;
+  font-family: var(--serif);
+  color: var(--charcoal);
   text-decoration: none;
+  position: relative;
 
-  .arrow {
-    align-self: center;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 0.1rem;
+    width: 100%;
+    background-color: var(--charcoal);
+    left: 0;
+    bottom: -0.25rem;
+    opacity: 1;
+    transition: opacity var(--transSlow);
   }
 
   &:hover,
   &:focus {
     cursor: pointer;
-    background-color: #3a3a3a;
-    border-color: #3a3a3a;
-    color: #fff;
+
+    &:after {
+      opacity: 0.15;
+    }
   }
 `
 

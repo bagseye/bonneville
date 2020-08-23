@@ -24,10 +24,12 @@ export default ({ data }) => {
       </FeaturedItems>
       {allMarkdownRemark.edges.map(({ node }) => (
         <BlogItem
+          fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
           title={node.frontmatter.title}
           excerpt={node.excerpt}
           path={node.frontmatter.path}
           date={node.frontmatter.date}
+          alt={node.frontmatter.featuredImageAlt}
         />
       ))}
     </Layout>
@@ -48,6 +50,14 @@ export const query = graphql`
             title
             date(formatString: "MMMM DD, YY")
             path
+            featuredImage {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            featuredImageAlt
           }
           excerpt
         }

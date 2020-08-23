@@ -3,12 +3,12 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/SEO"
 import BlogItem from "../components/Blog/blog-item"
+import Button from "../components/Button/button"
 import styled from "styled-components"
 
 const Pager = styled.aside`
   font-family: var(--serif);
-  font-size: 1.25rem;
-  display: inline-block;
+  font-size: var(--h5);
 
   a {
     color: var(--black);
@@ -17,22 +17,33 @@ const Pager = styled.aside`
 `
 
 const PagerContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-gap: var(--spacing);
+
+  @media (min-width: 768px) {
+    grid-gap: calc(var(--spacing) * 2);
+  }
+
+  @media (min-width: 1200px) {
+    grid-gap: calc(var(--spacing) * 3);
+  }
 `
 
 const PagerButtons = styled.div`
-  flex: 0 0 100%;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
 `
 
 const PagerNumbers = styled.div`
-  flex: 0 0 100%;
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
 
   a {
-    padding-right: 1rem;
+    padding-right: var(--spacing);
   }
 `
 
@@ -52,12 +63,18 @@ const JournalTemplate = props => {
         <h1>Bonneville Journal</h1>
         <p>
           {" "}
-          Welcome to the Bonneville journal. Each page is auto generated through
-          gatsby-node.js, which is where you can handle the number of posts per
-          page. Pagination is also available
+          This is the Bonneville journal. Here you will find an elegant blog
+          system that will help you make announcements to your cleints with
+          ease.
+        </p>
+        <p>
+          Each page displays a maximum of 10 posts before displaying the
+          pagination component. To change the maximum number of posts per page,
+          please visit gatsby-node.js.
         </p>
         {edges.map(({ node }) => (
           <BlogItem
+            fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
             title={node.frontmatter.title}
             excerpt={node.excerpt}
             path={node.frontmatter.path}
@@ -72,14 +89,14 @@ const JournalTemplate = props => {
               {!isFirst && (
                 <Pager>
                   <Link to={`/journal/${prevPage}`} rel="prev">
-                    Previous
+                    <Button text="Previous" />
                   </Link>
                 </Pager>
               )}
               {!isLast && (
                 <Pager>
                   <Link to={`/journal/${nextPage}`} rel="next">
-                    Next
+                    <Button text="Next" />
                   </Link>
                 </Pager>
               )}
@@ -119,6 +136,13 @@ export const journalQuery = graphql`
             title
             date(formatString: "MMMM DD, YY")
             path
+            featuredImage {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt
         }

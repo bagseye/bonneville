@@ -3,10 +3,30 @@
 :root {
   --heavyWeight: 900;
   --transMed: 0.3s;
+  --transSlow: 0.5s;
   --black: #111;
+  --charcoal: #3e3e3e;
   --primaryColor: #939393;
   --serif: "Playfair Display", serif;
   --h3: 1.5rem;
+  --h4: 1.25rem;
+  --h5: 1.15rem;
+  --h6: 1rem;
+  --para: 1rem;
+  --spacing: 1rem;
+
+  @media (min-width: 768px) {
+    --h3: 1.75rem;
+    --h5: 1.25rem;
+    --h6: 1.1rem;
+    --para: 1.1rem;
+  }
+
+  @media (min-width: 1200px) {
+    --h3: 2rem;
+    --h5: 1.35rem;
+    --para: 1.15rem;
+  }
 }
 
 body {
@@ -14,6 +34,29 @@ body {
   color: $black;
   font-size: 1rem;
   margin: 0;
+}
+
+p {
+  font-size: var(--para);
+  line-height: 1.35;
+
+  @media (min-width: 768px) {
+    line-height: 1.5;
+  }
+}
+
+a {
+  color: var(--charcoal);
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:visited {
+    color: var(--charcoal);
+  }
 }
 
 .main-body {
@@ -30,7 +73,7 @@ body {
   }
 
   @media (min-width: 1200px) {
-    max-width: 1000px;
+    max-width: 860px;
   }
 }
 
