@@ -20,7 +20,7 @@ const ButtonWrapper = styled.button`
   text-decoration: none;
   position: relative;
 
-  &:after {
+  /* &:after {
     content: "";
     display: block;
     position: absolute;
@@ -40,7 +40,7 @@ const ButtonWrapper = styled.button`
     &:after {
       opacity: 0.15;
     }
-  }
+  } */
 `
 
 export default Button
