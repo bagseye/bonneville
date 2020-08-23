@@ -4,65 +4,85 @@ import { Link } from "gatsby"
 import Button from "../../components/Button/button"
 import Img from "gatsby-image"
 
-const BlogImage = styled.div`
-  flex: 0 0 100%;
-
-  @media (min-width: 768px) {
-    margin-bottom: 1rem;
-  }
-`
-
 const BlogItem = styled.article`
-  padding: 1rem 0;
-  display: flex;
-  flex-direction: column;
+  margin: calc(var(--spacing) * 4) 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-gap: var(--spacing);
 
   @media (min-width: 768px) {
-    flex-direction: row;
-    flex-wrap: wrap;
+    margin: calc(var(--spacing) * 6) 0;
+    grid-template-rows: auto auto;
+    grid-gap: calc(var(--spacing) * 2);
+  }
+
+  @media (min-width: 1200px) {
+    margin: calc(var(--spacing) * 8) 0;
+    grid-gap: calc(var(--spacing) * 3);
   }
 `
 
-const BlogTitle = styled.div`
-  h2 {
-    display: inline-block;
-    position: relative;
-    line-height: 2.25rem;
-    font-size: 1.5rem;
-  }
-  @media (min-width: 768px) {
-    box-sizing: border-box;
-    padding-right: 2rem;
-    width: 50%;
+const BlogImage = styled.div`
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  overflow: hidden;
+  background-color: #000;
 
-    h2 {
-      margin: 0;
-      font-size: 1.75rem;
+  figure {
+    margin: 0;
+    opacity: 1;
+    transition: transform var(--transSlow), opacity var(--transSlow);
+  }
+
+  &:hover {
+    figure {
+      opacity: 0.5;
+      transform: scale(1.1);
     }
   }
 `
 
+const BlogTitle = styled.div`
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  h2 {
+    font-size: var(--h3);
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  @media (min-width: 768px) {
+    grid-column: 1 / 2;
+  }
+`
+
 const BlogMeta = styled.div`
-  padding: 1rem 0;
   display: flex;
   justify-content: space-between;
 
   h4 {
     margin: 0;
-    font-size: 1rem;
-    line-height: 30px;
-    color: #939393;
+    font-size: var(--h5);
+    color: var(--primaryColor);
   }
 `
 
 const BlogContent = styled.div`
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+  p {
+    margin-top: 0;
+  }
   @media (min-width: 768px) {
-    width: 48%;
-    display: flex;
-    flex-direction: column;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
 
     p {
-      margin-top: 0;
+      margin-bottom: calc(var(--spacing) * 2);
     }
   }
 `
@@ -71,10 +91,16 @@ const BlogList = ({ key, fluid, title, excerpt, path, date, alt }) => {
   return (
     <BlogItem key={key}>
       <BlogImage>
-        <Img fluid={fluid} alt={alt} />
+        <figure>
+          <Link to={path}>
+            <Img fluid={fluid} alt={alt} />
+          </Link>
+        </figure>
       </BlogImage>
       <BlogTitle>
-        <h2>{title}</h2>
+        <Link to={path}>
+          <h2>{title}</h2>
+        </Link>
       </BlogTitle>
       <BlogContent>
         <p>{excerpt}</p>
