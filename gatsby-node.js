@@ -1,7 +1,10 @@
 const path = require(`path`)
+const _ = require("lodash")
 const { NONAME } = require("dns")
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
+
+  const tagTemplate = path.resolve("src/templates/tags.js")
   const result = await graphql(`
     {
       allMarkdownRemark {
@@ -9,8 +12,14 @@ exports.createPages = async ({ actions, graphql }) => {
           node {
             frontmatter {
               path
+              tags
             }
           }
+        }
+      }
+      tagsGroup: allMarkdownRemark(limit: 2000) {
+        group(field: frontmatter___tags) {
+          fieldValue
         }
       }
     }
@@ -61,7 +70,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Create blog list pages
   const posts = result.data.allMarkdownRemark.edges
-  const postsPerPage = 10 // Change for number posts to display per page
+  const postsPerPage = 1 // Change for number posts to display per page
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
@@ -75,4 +84,34 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     })
   })
+
+  // Make Tag Pages
+  const tags = result.data.tagsGroup.group
+  const numTagPages = Math.ceil(tags.length / postsPerPage)
+
+  // Array.from({length: numTagPages}).forEach() => {
+  //   createPage({
+  //     path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+  //     component: tagTemplate,
+  //     context: {
+  //       limit: postsPerPage,
+  //       tag: tag.fieldValue,
+  //       numTagPages,
+  //     },
+  //   })
+  // }
+  // tags.forEach(tag => {
+  Array.from({ length: numTagPages }).forEach((_, i) => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: tagTemplate,
+      context: {
+        limit: postsPerPage,
+        tag: tag.fieldValue,
+        numTagPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+  // })
 }

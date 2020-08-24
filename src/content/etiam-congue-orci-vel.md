@@ -5,6 +5,7 @@ date: 2019-08-26
 path: /etiam-congue-orci-vel
 featuredImage: ./images/dark-design.jpg
 featuredImageAlt: "Dark abstract shapes"
+tags: ["data", "CMS"]
 ---
 
 Standard page content that can be used with this starter.
