@@ -6,6 +6,7 @@ path: /etiam-congue-orci-vel
 featuredImage: ./images/dark-design.jpg
 featuredImageAlt: "Dark abstract shapes"
 tags: ["data", "CMS"]
+author: Morgan Baker
 ---
 
 Standard page content that can be used with this starter.

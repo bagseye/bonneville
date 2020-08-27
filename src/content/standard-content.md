@@ -4,44 +4,39 @@ description: This is some of the basic content that can be added to this theme
 date: 2019-08-26
 path: /standard-content
 featuredImage: ./images/dark-design.jpg
-tags: ["data", "CMS"]
+tags: ["data"]
+author: Morgan Baker
 ---
 
-Standard page content that can be used with this starter.
+## Nulla est purus, auctor a pellentesque
 
-# Heading 1
+#### Praesent non mattis erat
 
-## Heading 2
+Quisque sit amet mi sapien. Aenean at magna vel turpis fringilla lacinia. Sed vulputate neque vitae augue posuere tempor. Praesent ut sagittis ipsum. Nulla volutpat at augue a vulputate. Etiam molestie est vel pretium imperdiet. Duis a sem tristique, dapibus sapien a, rutrum dui. Nunc non **lectus quis urna iaculis** feugiat in eu orci. Vestibulum pretium luctus justo, non convallis ante dignissim vel. Nam tristique ante vitae vehicula tincidunt. Proin vel nibh eu nunc porta laoreet at a velit. Proin blandit tincidunt eros nec placerat.
 
-### Heading 3
+Nullam egestas efficitur mi at dapibus. Maecenas consequat neque quis elit euismod aliquam. In eros nisi, finibus eget cursus eu, varius sit amet nisi. Pellentesque commodo venenatis est sit amet mollis. Duis venenatis pretium lorem sit amet sollicitudin. Sed malesuada, nunc imperdiet scelerisque faucibus, odio augue aliquet ipsum, quis vehicula ex elit at mi. Donec rhoncus varius arcu a facilisis. Integer aliquam maximus ligula, a imperdiet magna accumsan et. Aliquam erat volutpat. Suspendisse potenti. Aenean eget tellus neque.
 
-#### Heading 4
+> Duis venenatis pretium lorem sit amet sollicitudin. Sed malesuada, nunc imperdiet scelerisque faucibus
 
-##### Heading 5
+## Sed malesuada, nunc imperdiet
 
-###### Heading 6
+#### Proin blandit tincidunt
 
-**bold text**
+Sed eu aliquet dolor. Nullam vitae tempor tellus. Vivamus eget elementum leo. Etiam dolor erat, tincidunt ut erat et, hendrerit tincidunt dolor. Vivamus pretium luctus nisi, quis sodales diam varius ac. Etiam mattis velit in dui gravida, ut _rutrum urna accumsan_. Aliquam facilisis in orci eu mollis. Morbi vel nisi pulvinar mi tincidunt aliquet. Donec at dictum eros. Sed ac consectetur ex.
 
-_italic text_
+- Duis venenatis pretium lorem sit amet sollicitudin
+- Aenean at magna vel turpis
+- Nullam vitae tempor tellus
 
-> This is an example of a blockquote. Use this to make content stand out
+Aenean eros sem, mollis nec tempus eu, semper quis tellus. Etiam vel porta massa. Morbi ac congue sapien, a auctor magna. Nunc vel viverra quam. Sed semper hendrerit lacus laoreet scelerisque. Morbi elit leo, auctor sed lectus sed, maximus condimentum enim. Vivamus vel tellus sit amet odio dignissim sagittis ac ut est. Sed ante justo, pharetra in tincidunt ut, feugiat eu ex. Maecenas vel ante velit. Duis dignissim lobortis ante vel porta. [Donec suscipit lobortis blandit](http://github.com). Ut sagittis sed augue quis porta. Donec nec lorem tincidunt, sagittis urna vel, tristique justo. Ut dapibus congue facilisis. Ut eget consequat lorem. Donec leo tellus, bibendum in arcu at, finibus rutrum velit.
 
 ![This is the alt text for this image](./images/dark-design.jpg)
 
-1. First Item
-2. Second Item
-3. Third Item
+Quisque sit amet mi sapien. Aenean at magna vel turpis fringilla lacinia. Sed vulputate neque vitae augue posuere tempor. Praesent ut sagittis ipsum. Nulla volutpat at augue a vulputate. Etiam molestie est vel pretium imperdiet. Duis a sem tristique, dapibus sapien a, rutrum dui. Nunc non lectus quis urna iaculis feugiat in eu orci. Vestibulum pretium luctus justo, non convallis ante dignissim vel. Nam tristique ante vitae vehicula tincidunt. Proin vel nibh eu nunc porta laoreet at a velit. Proin blandit tincidunt eros nec placerat.
 
-`inline code example`
+| Curabitur et neque                            | Proin turpis risus                        | Maecenas consequat neque   |
+| --------------------------------------------- | ----------------------------------------- | -------------------------- |
+| Suspendisse potenti. Aenean eget tellus neque | Sed malesuada, nunc imperdiet             | Quisque sit amet mi sapien |
+| Aenean at magna vel turpis                    | Proin blandit tincidunt eros nec placerat | Duis a sem tristique       |
 
-- First Item
-- Second Item
-- Third Item
-
----
-
-| Syntax    | Description |
-| --------- | ----------- |
-| Header    | Title       |
-| Paragraph | Text        |
+Nullam egestas efficitur mi at dapibus. Maecenas consequat neque quis elit euismod aliquam. In eros nisi, finibus eget cursus eu, varius sit amet nisi. Pellentesque commodo venenatis est sit amet mollis. Duis venenatis **pretium lorem sit** amet sollicitudin. Sed malesuada, nunc imperdiet scelerisque faucibus, odio augue aliquet ipsum, quis vehicula ex elit at mi. Donec rhoncus varius arcu a facilisis. Integer aliquam maximus ligula, a imperdiet magna accumsan et. Aliquam erat volutpat. Suspendisse potenti. Aenean eget tellus neque.

@@ -4,7 +4,11 @@ const { NONAME } = require("dns")
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
+  // Page Templates
+  const pageTemplate = path.resolve("src/templates/page-template.js")
+  const blogTemplate = path.resolve("src/templates/post.js")
   const tagTemplate = path.resolve("src/templates/tags.js")
+
   const result = await graphql(`
     {
       allMarkdownRemark {
@@ -20,6 +24,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       tagsGroup: allMarkdownRemark(limit: 2000) {
         group(field: frontmatter___tags) {
           fieldValue
+          totalCount
         }
       }
     }
@@ -50,7 +55,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   pageData.forEach(page => {
     createPage({
       path: `/${page.name}`,
-      component: require.resolve(`./src/templates/page-template.js`),
+      component: pageTemplate,
       context: { page },
     })
   })
@@ -61,7 +66,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.path,
-      component: path.resolve(`src/templates/post.js`),
+      component: blogTemplate,
       context: {
         slug: node.frontmatter.path,
       },
@@ -87,31 +92,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Make Tag Pages
   const tags = result.data.tagsGroup.group
-  const numTagPages = Math.ceil(tags.length / postsPerPage)
+  const tagPostsPerPage = 1
 
-  // Array.from({length: numTagPages}).forEach() => {
-  //   createPage({
-  //     path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
-  //     component: tagTemplate,
-  //     context: {
-  //       limit: postsPerPage,
-  //       tag: tag.fieldValue,
-  //       numTagPages,
-  //     },
-  //   })
-  // }
-  // tags.forEach(tag => {
-  Array.from({ length: numTagPages }).forEach((_, i) => {
+  tags.forEach((tag, i) => {
+    const tagCount = tag.totalCount
+    const numTagPages = Math.ceil(tagCount / tagPostsPerPage)
     createPage({
-      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      path: `/tags/${_.kebabCase(tag.fieldValue)}`,
       component: tagTemplate,
       context: {
         limit: postsPerPage,
         tag: tag.fieldValue,
         numTagPages,
+        skip: i * postsPerPage,
         currentPage: i + 1,
       },
     })
   })
-  // })
 }

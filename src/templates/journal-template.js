@@ -79,6 +79,7 @@ const JournalTemplate = props => {
             excerpt={node.excerpt}
             path={node.frontmatter.path}
             date={node.frontmatter.date}
+            tag={node.frontmatter.tags}
           />
         ))}
         {/* Paging controls
@@ -136,6 +137,7 @@ export const journalQuery = graphql`
             title
             date(formatString: "MMMM DD, YY")
             path
+            tags
             featuredImage {
               childImageSharp {
                 fluid {

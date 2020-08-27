@@ -1,13 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import BlogItem from "../components/Blog/blog-item"
-import Button from "../components/Button/button"
 import styled from "styled-components"
 
 const Tags = ({ pageContext, data }) => {
-  console.log(pageContext)
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} post${
@@ -23,20 +21,18 @@ const Tags = ({ pageContext, data }) => {
           const { path } = node.frontmatter
           const { title } = node.frontmatter
           const { date } = node.frontmatter
+          const { tags } = node.frontmatter
+
           return (
             <BlogItem
-              fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
               title={title}
               excerpt={node.excerpt}
               path={path}
               date={date}
+              tag={tags}
             />
           )
         })}
-
-        <Link to="/tags">
-          <Button text="All Tags" />
-        </Link>
       </div>
     </Layout>
   )
@@ -68,9 +64,9 @@ Tags.propTypes = {
 export default Tags
 
 export const pageQuery = graphql`
-  query($tag: String, $limit: Int!) {
+  query($tag: String) {
     allMarkdownRemark(
-      limit: $limit
+      limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
@@ -82,6 +78,7 @@ export const pageQuery = graphql`
             title
             date(formatString: "MMMM DD, YY")
             path
+            tags
             featuredImage {
               childImageSharp {
                 fluid {
