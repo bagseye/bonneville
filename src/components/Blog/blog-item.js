@@ -87,7 +87,7 @@ const BlogContent = styled.div`
   }
 `
 
-const BlogList = ({ key, fluid, title, excerpt, path, date, alt, tag }) => {
+const BlogList = ({ key, fluid, title, excerpt, path, date, alt }) => {
   return (
     <BlogItem key={key}>
       <BlogImage>
@@ -109,13 +109,6 @@ const BlogList = ({ key, fluid, title, excerpt, path, date, alt, tag }) => {
             <Button />
           </Link>
           <h4>{date}</h4>
-          {tag.map((tagName, index) => {
-            return (
-              <Link to={`/tags/${tagName}`} key={index}>
-                {tagName}
-              </Link>
-            )
-          })}
         </BlogMeta>
       </BlogContent>
     </BlogItem>

@@ -1,9 +1,9 @@
 ---
-title: Standard Content
-description: This is some of the basic content that can be added to this theme
+title: Morbi elit leo, auctor sed lectus
+description: Duis venenatis pretium lorem sit amet sollicitudin. Sed malesuada, nunc imperdiet
 date: 2019-08-26
-path: /standard-content
-featuredImage: ./images/dark-design.jpg
+path: /morbi-elit-leo
+featuredImage: ./images/dog.jpg
 tags: ["data"]
 author: Morgan Baker
 ---
