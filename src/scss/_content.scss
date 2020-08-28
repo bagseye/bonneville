@@ -1,14 +1,10 @@
 h1 {
-  margin: 3rem 0;
+  font-size: var(--h1);
+  margin: calc(var(--spacing) * 3) 0;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6,
 p {
-  margin: 1.25rem 0;
+  margin: calc(var(--spacing) / 2) 0 var(--spacing) 0;
 }
 
 h1,
@@ -18,111 +14,115 @@ h4,
 h5,
 h6 {
   font-family: $serif;
+  font-weight: 400;
 }
 
 hr,
 blockquote,
 table,
 ol,
-ul {
-  margin: 2.5rem 0;
-}
-
-h1 {
-  font-size: 2rem;
+ul,
+.gatsby-resp-image-wrapper {
+  margin: calc(var(--spacing) * 2) 0;
 
   @media (min-width: 768px) {
-    font-size: 2.6rem;
+    margin: calc(var(--spacing) * 3) 0;
   }
 
   @media (min-width: 1200px) {
-    font-size: 3rem;
+    margin: calc(var(--spacing) * 4) 0;
   }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--charcoal);
+}
+
+h5,
+h6 {
+  color: var(--primaryColor);
+  margin: var(--spacing) 0;
 }
 
 h2 {
-  font-size: 1.8rem;
+  margin: calc(var(--spacing) * 1.5) 0;
+  font-size: var(--h2);
 
   @media (min-width: 768px) {
-    font-size: 2.4rem;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 2.8rem;
+    margin: calc(var(--spacing) * 2) 0;
   }
 }
 
 h3 {
-  font-size: 1.6rem;
-
-  @media (min-width: 768px) {
-    font-size: 2.2rem;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 2.6rem;
-  }
+  font-size: var(--h3);
 }
 
 h4 {
-  font-size: 1.4rem;
-
-  @media (min-width: 768px) {
-    font-size: 2rem;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 2.4rem;
-  }
+  font-size: var(--h4);
+  margin: calc(var(--spacing) * 1.5) 0;
 }
 
 h5 {
-  font-size: 1.2rem;
-
-  @media (min-width: 768px) {
-    font-size: 1.8rem;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 2.2rem;
-  }
+  font-size: var(--h5);
 }
 
 h6 {
-  font-size: 1rem;
-
-  @media (min-width: 768px) {
-    font-size: 1.6rem;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 2rem;
-  }
+  font-size: var(--h6);
 }
 
 blockquote {
-  border-left: 3px solid $primaryColor;
-  padding: 1rem 2rem;
-  background-color: $lightGrey;
-  border-radius: 0.25rem;
+  padding: calc(var(--spacing) * 2) var(--spacing);
+  background-color: rgba(0, 0, 0, 0.03);
   width: 100%;
-  max-width: 500px;
-  font-size: 1.25rem;
   font-family: $serif;
   font-style: italic;
-  color: $darkGrey;
+  color: var(--charcoal);
+  box-sizing: border-box;
+
+  p {
+    font-size: var(--h3);
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    padding: calc(var(--spacing) * 3) calc(var(--spacing) * 2);
+  }
 }
 
 hr {
-  border: 2px solid $lightGrey;
+  border: 0.1rem solid var(--primaryColor);
+  opacity: 0.25;
 }
 
 ul,
 ol {
+  padding-left: var(--spacing);
+  font-size: var(--para);
   li {
+    padding-left: calc(var(--spacing) / 2);
+    margin: var(--spacing) 0;
+
     &::marker {
-      font-family: $serif;
-      color: $primaryColor;
+      font-size: 0.75rem;
+      color: var(--primaryColor);
+    }
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+  @media (min-width: 768px) {
+    padding-left: calc(var(--spacing) * 2);
+
+    li {
+      padding-left: var(--spacing);
     }
   }
 }
@@ -135,17 +135,39 @@ code {
 }
 
 table {
+  font-size: var(--para);
   thead {
+    font-family: var(--serif);
     color: #fff;
-    background-color: $primaryColor;
+    background-color: var(--primaryColor);
   }
 
   th,
   td {
-    padding: 0.5rem 1rem;
+    text-align: left;
+    font-weight: 400;
+    padding: var(--spacing);
   }
 
   tbody {
-    background-color: $lightGrey;
+    background-color: rgba(0, 0, 0, 0.03);
   }
+
+  @media (min-width: 768px) {
+    th,
+    td {
+      padding: var(--spacing) calc(var(--spacing) * 1.5);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    th,
+    td {
+      padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    }
+  }
+}
+
+.gatsby-resp-image-wrapper {
+  max-width: 100% !important;
 }

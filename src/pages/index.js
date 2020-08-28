@@ -30,6 +30,7 @@ export default ({ data }) => {
           path={node.frontmatter.path}
           date={node.frontmatter.date}
           alt={node.frontmatter.featuredImageAlt}
+          tag={node.frontmatter.tags}
         />
       ))}
     </Layout>
@@ -50,6 +51,7 @@ export const query = graphql`
             title
             date(formatString: "MMMM DD, YY")
             path
+            tags
             featuredImage {
               childImageSharp {
                 fluid {

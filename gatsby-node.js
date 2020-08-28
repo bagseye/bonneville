@@ -1,7 +1,14 @@
 const path = require(`path`)
+const _ = require("lodash")
 const { NONAME } = require("dns")
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
+
+  // Page Templates
+  const pageTemplate = path.resolve("src/templates/page-template.js")
+  const blogTemplate = path.resolve("src/templates/post.js")
+  const tagTemplate = path.resolve("src/templates/tags.js")
+
   const result = await graphql(`
     {
       allMarkdownRemark {
@@ -9,8 +16,15 @@ exports.createPages = async ({ actions, graphql }) => {
           node {
             frontmatter {
               path
+              tags
             }
           }
+        }
+      }
+      tagsGroup: allMarkdownRemark(limit: 2000) {
+        group(field: frontmatter___tags) {
+          fieldValue
+          totalCount
         }
       }
     }
@@ -41,7 +55,7 @@ exports.createPages = async ({ actions, graphql }) => {
   pageData.forEach(page => {
     createPage({
       path: `/${page.name}`,
-      component: require.resolve(`./src/templates/page-template.js`),
+      component: pageTemplate,
       context: { page },
     })
   })
@@ -52,7 +66,7 @@ exports.createPages = async ({ actions, graphql }) => {
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.path,
-      component: path.resolve(`src/templates/post.js`),
+      component: blogTemplate,
       context: {
         slug: node.frontmatter.path,
       },
@@ -61,7 +75,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Create blog list pages
   const posts = result.data.allMarkdownRemark.edges
-  const postsPerPage = 10 // Change for number posts to display per page
+  const postsPerPage = 1 // Change for number posts to display per page
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
@@ -71,6 +85,26 @@ exports.createPages = async ({ actions, graphql }) => {
         limit: postsPerPage,
         skip: i * postsPerPage,
         numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+
+  // Make Tag Pages
+  const tags = result.data.tagsGroup.group
+  const tagPostsPerPage = 1
+
+  tags.forEach((tag, i) => {
+    const tagCount = tag.totalCount
+    const numTagPages = Math.ceil(tagCount / tagPostsPerPage)
+    createPage({
+      path: `/tags/${_.kebabCase(tag.fieldValue)}`,
+      component: tagTemplate,
+      context: {
+        limit: postsPerPage,
+        tag: tag.fieldValue,
+        numTagPages,
+        skip: i * postsPerPage,
         currentPage: i + 1,
       },
     })
