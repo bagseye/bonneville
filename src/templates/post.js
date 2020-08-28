@@ -1,19 +1,15 @@
 import React from "react"
+import { useLocation } from "@reach/router"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/SEO"
 import Img from "gatsby-image"
 import "../scss/main.scss"
 import styled from "styled-components"
+import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa"
 
 const PostMeta = styled.aside`
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  grid-gap: var(--spacing); */
-
   h2 {
-    /* margin: 0; */
     font-size: var(--h4);
     color: var(--primaryColor);
     margin: calc(var(--spacing) / 2) 0;
@@ -66,7 +62,16 @@ const PostedTitle = styled.h4`
   }
 `
 
+const ShareArea = styled.div`
+  svg {
+    width: 30px;
+    height: 30px;
+    margin-right: var(--spacing);
+  }
+`
+
 export default function Template({ data }) {
+  let location = useLocation()
   const { markdownRemark } = data // Object destructuring
   const { frontmatter, html } = markdownRemark // Object destructuring og markdownRemark
   let featuredImgFluid =
@@ -100,6 +105,25 @@ export default function Template({ data }) {
             )
           })}
         </PostedTitle>
+        <hr />
+        <ShareArea>
+          <h4>Share This</h4>
+          <Link
+            to={`https://www.facebook.com/sharer.php?u=http%3A%2F%2F${location.host}${location.pathname}%2F`}
+          >
+            <FaFacebook />
+          </Link>
+          <Link
+            to={`https://twitter.com/intent/tweet?url=http%3A%2F%2F${location.host}${location.pathname}`}
+          >
+            <FaTwitter />
+          </Link>
+          <Link
+            to={`https://www.linkedin.com/sharing/share-offsite/?url=${location.href}`}
+          >
+            <FaLinkedin />
+          </Link>
+        </ShareArea>
       </div>
     </Layout>
   )
