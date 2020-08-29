@@ -75,7 +75,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Create blog list pages
   const posts = result.data.allMarkdownRemark.edges
-  const postsPerPage = 1 // Change for number posts to display per page
+  const postsPerPage = 10 // Change for number posts to display per page
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
@@ -92,20 +92,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Make Tag Pages
   const tags = result.data.tagsGroup.group
-  const tagPostsPerPage = 1
 
   tags.forEach((tag, i) => {
-    const tagCount = tag.totalCount
-    const numTagPages = Math.ceil(tagCount / tagPostsPerPage)
     createPage({
       path: `/tags/${_.kebabCase(tag.fieldValue)}`,
       component: tagTemplate,
       context: {
-        limit: postsPerPage,
         tag: tag.fieldValue,
-        numTagPages,
-        skip: i * postsPerPage,
-        currentPage: i + 1,
       },
     })
   })

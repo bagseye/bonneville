@@ -4,9 +4,9 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/SEO"
 import Img from "gatsby-image"
-import "../scss/main.scss"
 import styled from "styled-components"
-import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa"
+import Share from "../components/Share/share-container"
+import Button from "../components/Button/button"
 
 const PostMeta = styled.aside`
   h2 {
@@ -62,14 +62,6 @@ const PostedTitle = styled.h4`
   }
 `
 
-const ShareArea = styled.div`
-  svg {
-    width: 30px;
-    height: 30px;
-    margin-right: var(--spacing);
-  }
-`
-
 export default function Template({ data }) {
   let location = useLocation()
   const { markdownRemark } = data // Object destructuring
@@ -82,48 +74,53 @@ export default function Template({ data }) {
       <Seo title={frontmatter.title} description={frontmatter.description} />
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
-        <PostMeta>
-          <h2>
-            Posted / {frontmatter.date} / {frontmatter.author}
-          </h2>
-        </PostMeta>
-        <PostImage>
-          <Img fluid={featuredImgFluid} />
-        </PostImage>
+
+        {/* Check if date or author has been declared in MD file
+        If so, render the meta */}
+        {(frontmatter.date || frontmatter.author) && (
+          <PostMeta>
+            <h2>
+              {/* If there is date, display it */}
+              Posted {frontmatter.date && `/ ${frontmatter.date}`}{" "}
+              {/* If there is author, display it */}
+              {frontmatter.author && `/ ${frontmatter.author}`}
+            </h2>
+          </PostMeta>
+        )}
+
+        {/* If featured image is present, render featured image */}
+        {featuredImgFluid && (
+          <PostImage>
+            <Img fluid={featuredImgFluid} />
+          </PostImage>
+        )}
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <hr />
-        <PostedTitle>
-          Posted under /{" "}
-          {frontmatter.tags.map((tagName, index) => {
-            return (
-              <Link to={`/tags/${tagName}`} key={index}>
-                {tagName}
-              </Link>
-            )
-          })}
-        </PostedTitle>
+        <Link to="/journal" className="btn-link">
+          <Button text="Return to Journal Home" />
+        </Link>
+
+        {/* If there are tags for the post, render this section */}
+        {frontmatter.tags && (
+          <>
+            <hr />
+            <PostedTitle>
+              Posted under /{" "}
+              {frontmatter.tags.map((tagName, index) => {
+                return (
+                  <Link to={`/tags/${tagName}`} key={index}>
+                    {tagName}
+                  </Link>
+                )
+              })}
+            </PostedTitle>
+          </>
+        )}
         <hr />
-        <ShareArea>
-          <h4>Share This</h4>
-          <Link
-            to={`https://www.facebook.com/sharer.php?u=http%3A%2F%2F${location.host}${location.pathname}%2F`}
-          >
-            <FaFacebook />
-          </Link>
-          <Link
-            to={`https://twitter.com/intent/tweet?url=http%3A%2F%2F${location.host}${location.pathname}`}
-          >
-            <FaTwitter />
-          </Link>
-          <Link
-            to={`https://www.linkedin.com/sharing/share-offsite/?url=${location.href}`}
-          >
-            <FaLinkedin />
-          </Link>
-        </ShareArea>
+        <Share facebook twitter linkedin href={location.href} />
       </div>
     </Layout>
   )
@@ -141,7 +138,7 @@ export const pageQuery = graphql`
         author
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 1000) {
               ...GatsbyImageSharpFluid
             }
           }
