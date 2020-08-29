@@ -40,7 +40,7 @@
 body {
   font-family: $sansSerif;
   color: $black;
-  font-size: 1rem;
+  font-size: var(--para);
   margin: 0;
 }
 
@@ -68,7 +68,8 @@ a {
 }
 
 .main-body {
-  padding: 4rem 2rem 1rem 2rem;
+  padding: calc(var(--spacing) * 4) calc(var(--spacing) * 2)
+    calc(var(--spacing) * 4) calc(var(--spacing) * 2);
   max-width: 450px;
   margin: {
     left: auto;
@@ -76,7 +77,9 @@ a {
   }
 
   @media (min-width: 768px) {
-    padding: 6rem 2rem 1rem 2rem;
+    padding: calc(var(--spacing) * 6) calc(var(--spacing) * 2)
+      calc(var(--spacing) * 6) calc(var(--spacing) * 2);
+
     max-width: 600px;
   }
 
@@ -100,7 +103,7 @@ a {
     line-height: 1.75rem;
 
     &:hover {
-      color: #939393;
+      color: var(--primaryColor);
 
       &::after {
         width: 0;
