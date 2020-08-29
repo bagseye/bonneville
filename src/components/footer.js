@@ -25,138 +25,117 @@ export default ({ children }) => {
     `
   )
 
-  const FooterCont = styled.div`
-    footer {
-      padding: 1rem 2rem;
-      display: flex;
-      flex-direction: column;
+  const FooterMenu = styled.ul`
+    padding: 0;
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 300;
 
-      h2 {
-        font-size: 1rem;
-        margin: 0.75rem 0;
+    li {
+      display: inline;
+      /* padding-right: calc(var(--spacing) / 4); */
 
-        @media (min-width: 768px) {
-          margin-top: 0;
-        }
+      &::after {
+        content: "/";
+        display: inline-block;
+        padding-left: calc(var(--spacing) / 2);
       }
 
-      hr {
-        margin: 0.75rem 0;
+      a {
+        font-weight: 300;
+        text-decoration: none;
+        color: var(--charcoal);
+        transition: var(--transMed);
+      }
+
+      &:hover {
+        a {
+          color: var(--primaryColor);
+        }
       }
 
       @media (min-width: 768px) {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .nav-cont {
-        padding: 0;
-        margin: 0 0 1rem 0;
-        font-family: "Playfair Display";
-        font-weight: 300;
-
-        @media (min-width: 768px) {
-          margin-bottom: 0;
-          align-self: flex-end;
-        }
-
-        li {
-          display: inline;
-          padding-right: 0.5rem;
-
-          &::after {
-            content: "/";
-            display: inline-block;
-            padding-left: 0.5rem;
-          }
-
-          a {
-            font-weight: 300;
-            text-decoration: none;
-            color: var(--black);
-            transition: var(--transMed);
-          }
-
-          &:hover {
-            a {
-              color: var(--primaryColor);
-            }
-          }
-        }
-      }
-
-      .socials {
-        &-cont {
-          p {
-            margin: 0.75rem 0;
-            font-size: 0.85rem;
-          }
-
-          max-width: 225px;
-        }
-        margin: 0;
-        padding-left: 0;
-
-        li {
-          font-size: 2rem;
-          list-style: none;
-          display: inline;
-          margin-right: 0.75rem;
-
-          &:last-child {
-            margin-right: 0;
-          }
-
-          a {
-            color: var(--black);
-            transition: var(--transMed);
-          }
-
-          &:hover {
-            a {
-              color: var(--primaryColor);
-            }
-          }
-        }
+        padding-left: calc(var(--spacing) / 2);
       }
     }
   `
 
+  const FooterSocial = styled.ul`
+    margin: 0;
+    padding-top: var(--spacing);
+    padding-left: 0;
+
+    @media (min-width: 768px) {
+      padding-top: 0;
+    }
+
+    li {
+      font-size: var(--h4);
+      list-style: none;
+      display: inline;
+      margin: 0 var(--spacing) 0 0;
+      padding-left: 0;
+
+      a {
+        color: var(--charcoal);
+        transition: var(--transMed);
+      }
+
+      &:hover {
+        a {
+          color: var(--primaryColor);
+        }
+      }
+
+      @media (min-width: 768px) {
+        margin: 0 0 0 var(--spacing);
+      }
+
+      @media (min-width: 1200px) {
+        font-size: var(--h5);
+      }
+    }
+  `
+
+  const Footer = styled.footer`
+    padding: var(--spacing) calc(var(--spacing) * 2);
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  `
+
   return (
-    <FooterCont>
-      <footer>
-        <ul className="nav-cont">
-          <li>&copy; {showYear}</li>
-          <li>
-            <a
-              href={data.site.siteMetadata.authorSite}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {data.site.siteMetadata.author}
-            </a>
-          </li>
-          <ListLink to="/privacy/">Privacy</ListLink>
-          <ListLink to="/cookies/">Cookies</ListLink>
-        </ul>
-        <div className="socials-cont">
-          <h2>Find out more</h2>
-          <p>For details about the developer of this theme, please visit</p>
-          <hr />
-          <ul className="socials">
-            {socials.map((item, index) => {
-              return (
-                <li key={index}>
-                  <a href={item.url}>
-                    <span className="sr-only">{item.name}</span>
-                    {item.icon}
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-      </footer>
-    </FooterCont>
+    <Footer>
+      <FooterMenu>
+        <li>&copy; {showYear}</li>
+        <li>
+          <a
+            href={data.site.siteMetadata.authorSite}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {data.site.siteMetadata.author}
+          </a>
+        </li>
+        <ListLink to="/privacy/">Privacy</ListLink>
+        <ListLink to="/cookies/">Cookies</ListLink>
+      </FooterMenu>
+      <FooterSocial>
+        {socials.map((item, index) => {
+          return (
+            <li key={index}>
+              <a href={item.url}>
+                <span className="sr-only">{item.name}</span>
+                {item.icon}
+              </a>
+            </li>
+          )
+        })}
+      </FooterSocial>
+    </Footer>
   )
 }
