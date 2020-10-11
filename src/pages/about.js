@@ -1,8 +1,7 @@
 import React from "react"
-import Layout from "../components/layout"
 
 const AboutPage = () => (
-  <Layout>
+  <>
     <h1>What is Bonneville?</h1>
     <p>
       Vestibulum rhoncus quam sit amet purus convallis vestibulum. Pellentesque
@@ -36,7 +35,7 @@ const AboutPage = () => (
       Vivamus suscipit, ex at efficitur sodales, diam elit lacinia sapien, eu
       interdum velit magna quis urna. Sed accumsan viverra augue id imperdiet.{" "}
     </p>
-  </Layout>
+  </>
 )
 
 export default AboutPage

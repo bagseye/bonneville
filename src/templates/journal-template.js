@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
 import SEO from "../components/SEO"
 import BlogItem from "../components/Blog/blog-item"
 import Button from "../components/Button/button"
@@ -59,64 +58,61 @@ const JournalTemplate = props => {
   return (
     <>
       <SEO title="Read more about the projects at Bonneville" />
-      <Layout>
-        <h1>Bonneville Journal</h1>
-        <p>
-          {" "}
-          This is the Bonneville journal. Here you will find an elegant blog
-          system that will help you make announcements to your cleints with
-          ease.
-        </p>
-        <p>
-          Each page displays a maximum of 10 posts before displaying the
-          pagination component. To change the maximum number of posts per page,
-          please visit gatsby-node.js.
-        </p>
-        {edges.map(({ node }) => (
-          <BlogItem
-            fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
-            title={node.frontmatter.title}
-            excerpt={node.excerpt}
-            path={node.frontmatter.path}
-            date={node.frontmatter.date}
-            tag={node.frontmatter.tags}
-          />
-        ))}
-        {/* Paging controls
+      <h1>Bonneville Journal</h1>
+      <p>
+        {" "}
+        This is the Bonneville journal. Here you will find an elegant blog
+        system that will help you make announcements to your cleints with ease.
+      </p>
+      <p>
+        Each page displays a maximum of 10 posts before displaying the
+        pagination component. To change the maximum number of posts per page,
+        please visit gatsby-node.js.
+      </p>
+      {edges.map(({ node }) => (
+        <BlogItem
+          fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
+          title={node.frontmatter.title}
+          excerpt={node.excerpt}
+          path={node.frontmatter.path}
+          date={node.frontmatter.date}
+          tag={node.frontmatter.tags}
+        />
+      ))}
+      {/* Paging controls
         If there are multiple pages, show pager */}
-        {numPages > 1 && (
-          <PagerContainer>
-            <PagerButtons>
-              {!isFirst && (
-                <Pager>
-                  <Link to={`/journal/${prevPage}`} rel="prev">
-                    <Button text="Previous" />
-                  </Link>
-                </Pager>
-              )}
-              {!isLast && (
-                <Pager>
-                  <Link to={`/journal/${nextPage}`} rel="next">
-                    <Button text="Next" />
-                  </Link>
-                </Pager>
-              )}
-            </PagerButtons>
-            <PagerNumbers>
+      {numPages > 1 && (
+        <PagerContainer>
+          <PagerButtons>
+            {!isFirst && (
               <Pager>
-                {Array.from({ length: numPages }, (_, i) => (
-                  <Link
-                    key={`pagination-numbers${i + 1}`}
-                    to={`/journal/${i === 0 ? "" : i + 1}`}
-                  >
-                    {i + 1}
-                  </Link>
-                ))}
+                <Link to={`/journal/${prevPage}`} rel="prev">
+                  <Button text="Previous" />
+                </Link>
               </Pager>
-            </PagerNumbers>
-          </PagerContainer>
-        )}
-      </Layout>
+            )}
+            {!isLast && (
+              <Pager>
+                <Link to={`/journal/${nextPage}`} rel="next">
+                  <Button text="Next" />
+                </Link>
+              </Pager>
+            )}
+          </PagerButtons>
+          <PagerNumbers>
+            <Pager>
+              {Array.from({ length: numPages }, (_, i) => (
+                <Link
+                  key={`pagination-numbers${i + 1}`}
+                  to={`/journal/${i === 0 ? "" : i + 1}`}
+                >
+                  {i + 1}
+                </Link>
+              ))}
+            </Pager>
+          </PagerNumbers>
+        </PagerContainer>
+      )}
     </>
   )
 }

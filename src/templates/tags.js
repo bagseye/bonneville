@@ -1,9 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
 import BlogItem from "../components/Blog/blog-item"
-import styled from "styled-components"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -13,7 +11,7 @@ const Tags = ({ pageContext, data }) => {
   } tagged with "${tag}"`
 
   return (
-    <Layout>
+    <>
       <div>
         <h1>{tagHeader}</h1>
 
@@ -34,7 +32,7 @@ const Tags = ({ pageContext, data }) => {
           )
         })}
       </div>
-    </Layout>
+    </>
   )
 }
 
