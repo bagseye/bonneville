@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
 import Seo from "../components/SEO"
 import BlogItem from "../components/Blog/blog-item"
 import styled from "styled-components"
@@ -13,7 +12,7 @@ const FeaturedItems = styled.h4`
 export default ({ data }) => {
   const { allMarkdownRemark } = data
   return (
-    <Layout>
+    <>
       <Seo />
       <h1>
         My name is Bonneville. I'm a starter theme for Gatsby and I like to talk
@@ -33,7 +32,7 @@ export default ({ data }) => {
           tag={node.frontmatter.tags}
         />
       ))}
-    </Layout>
+    </>
   )
 }
 

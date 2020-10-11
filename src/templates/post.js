@@ -1,7 +1,6 @@
 import React from "react"
 import { useLocation } from "@reach/router"
 import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
 import Seo from "../components/SEO"
 import Img from "gatsby-image"
 import styled from "styled-components"
@@ -70,7 +69,7 @@ export default function Template({ data }) {
     markdownRemark.frontmatter.featuredImage.childImageSharp.fluid
 
   return (
-    <Layout>
+    <>
       <Seo title={frontmatter.title} description={frontmatter.description} />
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
@@ -122,7 +121,7 @@ export default function Template({ data }) {
         <hr />
         <Share facebook twitter linkedin href={location.href} />
       </div>
-    </Layout>
+    </>
   )
 }
 export const pageQuery = graphql`
