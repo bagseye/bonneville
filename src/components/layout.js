@@ -5,10 +5,12 @@ import "typeface-lato"
 import "typeface-playfair-display"
 import "../scss/main.scss"
 
-export default ({ children }) => (
-  <>
-    <Header />
-    <main className="main-body">{children}</main>
-    <Footer />
-  </>
-)
+export default ({ children }) => {
+  return (
+    <>
+      <Header />
+      <main className="main-body">{children}</main>
+      <Footer />
+    </>
+  )
+}
