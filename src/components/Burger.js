@@ -9,7 +9,6 @@ const Burger = () => {
     setNav(isOpen => !isOpen)
   }
 
-  console.log(isOpen)
   return (
     <BurgerStyles
       onClick={toggleNav}
