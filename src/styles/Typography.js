@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components"
-import "typeface-lato"
-import "typeface-playfair-display"
+import "@fontsource/lato"
+import "@fontsource/playfair-display"
 
 const Typography = createGlobalStyle`
 h1 {

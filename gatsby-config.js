@@ -20,7 +20,6 @@ module.exports = {
     githubURL: `https://github.com/bagseye`,
   },
   plugins: [
-    `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
