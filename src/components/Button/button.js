@@ -41,6 +41,10 @@ const ButtonWrapper = styled.button`
       opacity: 0.15;
     }
   }
+
+  &:visited {
+    text-decoration: none;
+  }
 `
 
 export default Button
