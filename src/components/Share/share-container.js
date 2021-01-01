@@ -9,6 +9,12 @@ const ShareArea = styled.div`
     height: 30px;
     margin-right: var(--spacing);
   }
+
+  a {
+    &:after {
+      display: none;
+    }
+  }
 `
 
 const ShareCont = ({ facebook, twitter, linkedin, href }) => {
