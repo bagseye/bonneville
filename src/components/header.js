@@ -1,6 +1,5 @@
 import React from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
-import "../scss/main.scss"
 import Logo from "../content/images/bonneville-logo.svg"
 import Burger from "./Burger"
 import Navigation from "./navigation"

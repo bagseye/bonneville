@@ -1,13 +1,14 @@
 import React from "react"
 import Header from "../components/header"
 import Footer from "../components/footer"
-import "typeface-lato"
-import "typeface-playfair-display"
-import "../scss/main.scss"
+import GlobalStyles from "../styles/GlobalStyles"
+import Typography from "../styles/Typography"
 
 export default ({ children }) => {
   return (
     <>
+      <GlobalStyles />
+      <Typography />
       <Header />
       <main className="main-body">{children}</main>
       <Footer />
