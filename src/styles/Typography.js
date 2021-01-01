@@ -1,3 +1,8 @@
+import { createGlobalStyle } from "styled-components"
+import "typeface-lato"
+import "typeface-playfair-display"
+
+const Typography = createGlobalStyle`
 h1 {
   font-size: var(--h1);
   margin: calc(var(--spacing) * 3) 0;
@@ -13,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $serif;
+  font-family: var(--serif);
   font-weight: 400;
 }
 
@@ -77,7 +82,7 @@ blockquote {
   padding: calc(var(--spacing) * 2) var(--spacing);
   background-color: rgba(0, 0, 0, 0.03);
   width: 100%;
-  font-family: $serif;
+  font-family: var(--serif);
   font-style: italic;
   color: var(--charcoal);
   box-sizing: border-box;
@@ -128,10 +133,10 @@ ol {
 }
 
 code {
-  font-family: $mono;
+  /* font-family: $mono; */
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
-  background-color: $lightGrey;
+  /* background-color: $lightGrey; */
 }
 
 table {
@@ -171,3 +176,6 @@ table {
 .gatsby-resp-image-wrapper {
   max-width: 100% !important;
 }
+`
+
+export default Typography
