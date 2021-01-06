@@ -1,6 +1,11 @@
+import React from "react"
+import { Link } from "gatsby"
+import Button from "./Button/button"
+import Img from "gatsby-image"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 
-export const BlogItemStyles = styled.article`
+const BlogItemStyles = styled.article`
   margin: calc(var(--spacing) * 4) 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -86,56 +91,52 @@ export const BlogItemStyles = styled.article`
   }
 `
 
-export const BlogPostStyles = styled.div`
-  .meta {
-    h2 {
-      font-size: var(--h4);
-      color: var(--primaryColor);
-      margin: calc(var(--spacing) / 2) 0;
-    }
-  }
+const BlogItem = props => {
+  const { index } = props
+  const { excerpt } = props.nodeObj
+  const { title, date, path, featuredImageAlt } = props.nodeObj.frontmatter
+  const { fluid } = props.nodeObj.frontmatter.featuredImage.childImageSharp
 
-  .post-img {
-    margin: calc(var(--spacing) * 2) 0;
+  return (
+    <BlogItemStyles key={`blog-item-${index}`}>
+      {fluid && (
+        <figure>
+          <Link to={path}>
+            <Img fluid={fluid} alt={featuredImageAlt} />
+          </Link>
+        </figure>
+      )}
 
-    @media (min-width: 1200px) {
-      margin: calc(var(--spacing) * 4) 0;
-    }
-  }
+      {title && (
+        <h2>
+          <Link to={path}>{title}</Link>
+        </h2>
+      )}
 
-  font-weight: 400;
-  font-size: var(--h4);
-  color: var(--primaryColor);
+      {excerpt && (
+        <div>
+          <p>{excerpt}</p>
+          {path && (
+            <div className="meta">
+              <Link className="btn-link" to={path}>
+                <Button />
+              </Link>
+              <h4>{date}</h4>
+            </div>
+          )}
+        </div>
+      )}
+    </BlogItemStyles>
+  )
+}
 
-  a {
-    text-decoration: none;
-    margin-right: calc(var(--spacing) / 2);
-    position: relative;
+BlogItem.propTypes = {
+  fluid: PropTypes.object,
+  alt: PropTypes.string,
+  title: PropTypes.string,
+  excerpt: PropTypes.string,
+  path: PropTypes.string,
+  date: PropTypes.string,
+}
 
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      height: 0.1rem;
-      width: 100%;
-      background-color: var(--charcoal);
-      left: 0;
-      bottom: -0.25rem;
-      opacity: 1;
-      transition: opacity var(--transSlow);
-    }
-
-    &:hover,
-    &:focus {
-      cursor: pointer;
-
-      &:after {
-        opacity: 0.15;
-      }
-    }
-
-    &::last-child {
-      margin-right: 0;
-    }
-  }
-`
+export default BlogItem

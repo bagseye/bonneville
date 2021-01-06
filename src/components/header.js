@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import Logo from "../content/images/bonneville-logo.svg"
 import Burger from "./Burger"
-import Navigation from "./navigation"
+import Navigation from "./Navigation"
 import { HeaderStyles } from "../styles/NavStyles"
 
 export default () => {
