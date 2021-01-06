@@ -1,7 +1,8 @@
 import React from "react"
 import SEO from "../components/SEO"
 import styled from "styled-components"
-import Button from "../components/Button/button"
+import Button from "../components/Button"
+import Banner from "../components/Banner"
 
 const Form = styled.div`
   margin: calc(var(--spacing) * 2) 0;
@@ -45,7 +46,7 @@ const ContactPage = () => {
         title="Get in touch"
         description="Contact Bonneville about your next project"
       />
-      <h1>Get in touch today</h1>
+      <Banner content="Get in touch today" />
       <p>
         Fusce eu tincidunt felis. Ut auctor urna et nibh lacinia, id efficitur
         ipsum blandit. Aliquam vulputate sapien sit amet ante varius vestibulum.

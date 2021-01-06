@@ -1,9 +1,10 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/SEO"
-import BlogItem from "../components/Blog/blog-item"
+import BlogItem from "../components/BlogItem"
 import Button from "../components/Button/button"
 import { PagerStyles } from "../styles/JournalStyles"
+import Banner from "../components/Banner"
 
 const JournalTemplate = props => {
   const { edges } = props.data.allMarkdownRemark
@@ -17,7 +18,7 @@ const JournalTemplate = props => {
   return (
     <>
       <SEO title="Read more about the projects at Bonneville" />
-      <h1>Bonneville Journal</h1>
+      <Banner content="Bonneville Journal" />
       <p>
         {" "}
         This is the Bonneville journal. Here you will find an elegant blog
@@ -28,18 +29,8 @@ const JournalTemplate = props => {
         pagination component. To change the maximum number of posts per page,
         please visit gatsby-node.js.
       </p>
-      {edges.map(({ node }) => {
-        const blogNode = node.frontmatter
-        return (
-          <BlogItem
-            fluid={blogNode.featuredImage.childImageSharp.fluid}
-            title={blogNode.title}
-            excerpt={node.excerpt}
-            path={blogNode.path}
-            date={blogNode.date}
-            tag={blogNode.tags}
-          />
-        )
+      {edges.map(({ node }, index) => {
+        return <BlogItem nodeObj={node} index={index} />
       })}
       {/* Paging controls
         If there are multiple pages, show pager */}
@@ -84,7 +75,6 @@ export const journalQuery = graphql`
     ) {
       edges {
         node {
-          id
           frontmatter {
             title
             date(formatString: "MMMM DD, YY")

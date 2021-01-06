@@ -1,6 +1,6 @@
 import React from "react"
 import { FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa"
-import ShareIcon from "../Share/share-icon"
+import ShareIcon from "./ShareIcon"
 import styled from "styled-components"
 
 const ShareArea = styled.div`

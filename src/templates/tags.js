@@ -1,7 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import BlogItem from "../components/Blog/blog-item"
+import BlogItem from "../components/BlogItem"
+import Banner from "../components/Banner"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -13,23 +14,10 @@ const Tags = ({ pageContext, data }) => {
   return (
     <>
       <div>
-        <h1>{tagHeader}</h1>
+        <Banner content={tagHeader} />
 
-        {edges.map(({ node }) => {
-          const { path } = node.frontmatter
-          const { title } = node.frontmatter
-          const { date } = node.frontmatter
-          const { tags } = node.frontmatter
-
-          return (
-            <BlogItem
-              title={title}
-              excerpt={node.excerpt}
-              path={path}
-              date={date}
-              tag={tags}
-            />
-          )
+        {edges.map(({ node }, index) => {
+          return <BlogItem nodeObj={node} index={index} />
         })}
       </div>
     </>
