@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import React, { useContext } from "react"
-import MenuItems from "../constants/menu-items"
+import { mainMenuItems } from "../constants/menu-items"
 import { NavigationStyles } from "../styles/NavStyles"
 import MenuContext from "./MenuContext"
 
@@ -14,7 +14,7 @@ const Navigation = () => {
   return (
     <NavigationStyles className={isOpen ? "open" : "closed"}>
       <ul>
-        {MenuItems.map((item, index) => (
+        {mainMenuItems.map((item, index) => (
           <li key={`menu-item-${index}`} className="nav-link">
             <Link to={item.path} onClick={toggleNav}>
               {item.title}
