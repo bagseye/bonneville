@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/SEO"
 import BlogItem from "../components/BlogItem"
-import Button from "../components/Button/button"
+import Button from "../components/Button"
 import { PagerStyles } from "../styles/JournalStyles"
 import Banner from "../components/Banner"
 
