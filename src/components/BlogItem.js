@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Button from "./Button/button"
+import Button from "./Button"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import PropTypes from "prop-types"
