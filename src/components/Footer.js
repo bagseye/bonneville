@@ -1,10 +1,12 @@
 import React from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
-import Logo from "../content/images/bonneville-logo.svg"
-import socials from "../constants/social-icons"
-import menuItems from "../constants/menu-items"
-import footerMenuItems from "../constants/footer-menu-items"
+import {
+  mainMenuItems,
+  footerMenuItems,
+  socialMenuItems,
+} from "../constants/menu-items"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 
 const FooterStyles = styled.footer`
   padding: calc(var(--spacing) * 2);
@@ -25,12 +27,6 @@ const FooterStyles = styled.footer`
     text-transform: capitalize;
     list-style: none;
     padding-left: 0;
-
-    &:hover {
-      a {
-        color: var(--primaryColor);
-      }
-    }
   }
 
   a {
@@ -77,13 +73,9 @@ const FooterStyles = styled.footer`
 
   .footer-menu {
     padding: 0;
-    margin: 0;
     margin-bottom: calc(var(--spacing) * 2);
 
     @media (min-width: 768px) {
-      flex-basis: 175px;
-      flex-shrink: 0;
-      flex-grow: 0;
       margin-bottom: 0;
     }
 
@@ -94,16 +86,23 @@ const FooterStyles = styled.footer`
     }
   }
 
+  .footer-menu,
   .footer-social {
     margin: 0;
+
+    @media (min-width: 768px) {
+      flex-basis: 175px;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+  }
+
+  .footer-social {
     padding-top: var(--spacing);
     padding-left: 0;
 
     @media (min-width: 768px) {
       padding-top: 0;
-      flex-basis: 175px;
-      flex-shrink: 0;
-      flex-grow: 0;
     }
   }
 
@@ -119,7 +118,7 @@ const FooterStyles = styled.footer`
   }
 `
 
-export default () => {
+const Footer = ({ Logo }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -133,13 +132,18 @@ export default () => {
     `
   )
 
+  const footerData = data.site.siteMetadata
+
   return (
     <FooterStyles>
       <div className="flex">
         <div className="brand-cont">
-          <Link to="/">
-            <img src={Logo} alt={data.site.siteMetadata.title} />
-          </Link>
+          {/* If there is a logo, render this */}
+          {Logo && (
+            <Link to="/">
+              <img src={Logo} alt={footerData.title} />
+            </Link>
+          )}
           <address>
             85 Simone Weil Avenue
             <br />
@@ -151,42 +155,60 @@ export default () => {
             07076 009 211
           </a>
         </div>
-        <ul className="footer-menu">
-          {menuItems.map((item, index) => (
-            <li key={`menuItem${index}`}>
-              <Link to={item.path}>{item.title}</Link>
-            </li>
-          ))}
-          {footerMenuItems.map((item, index) => (
-            <li key={`footerMenuItem${index}`}>
-              <Link to={item.path}>{item.title}</Link>
-            </li>
-          ))}
-        </ul>
-        <ul className="footer-social">
-          {socials.map((item, index) => {
-            return (
-              <li key={index}>
-                <a href={item.url} target="_blank" rel="noopener noreferrer">
-                  {item.name}
-                </a>
+
+        {/* If main menu items are being imported, render this */}
+        {mainMenuItems && (
+          <ul className="footer-menu">
+            {mainMenuItems.map((item, index) => (
+              <li key={`menuItem${index}`}>
+                <Link to={item.path}>{item.title}</Link>
               </li>
-            )
-          })}
-        </ul>
+            ))}
+            {footerMenuItems.map((item, index) => (
+              <li key={`footerMenuItem${index}`}>
+                <Link to={item.path}>{item.title}</Link>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {/* If social menu items are being imported, render this */}
+        {socialMenuItems && (
+          <ul className="footer-social">
+            {socialMenuItems.map((item, index) => {
+              return (
+                <li key={index}>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    {item.name}
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        )}
       </div>
       <ul className="copy">
         <li>&copy; {new Date().getFullYear()}</li>
-        <li>
-          <a
-            href={data.site.siteMetadata.authorSite}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {data.site.siteMetadata.author}
-          </a>
-        </li>
+
+        {/* if there is an author stated in the config, render this */}
+        {footerData.author && (
+          <li>
+            <a
+              href={footerData.authorSite}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {footerData.author}
+            </a>
+          </li>
+        )}
       </ul>
     </FooterStyles>
   )
 }
+
+Footer.propTypes = {
+  Logo: PropTypes.string,
+}
+
+export default Footer
