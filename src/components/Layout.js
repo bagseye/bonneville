@@ -4,7 +4,7 @@ import Footer from "./Footer"
 import GlobalStyles from "../styles/GlobalStyles"
 import Typography from "../styles/Typography"
 
-export default ({ children }) => {
+const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles />
@@ -15,3 +15,5 @@ export default ({ children }) => {
     </>
   )
 }
+
+export default Layout
