@@ -13,20 +13,23 @@ const FooterStyles = styled.footer`
   background-color: #f9f9f9;
   font-family: var(--serif);
   font-weight: 300;
-  font-size: var(--h6);
   font-style: normal;
   color: var(--charcoal);
 
   .flex {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   li {
     text-transform: capitalize;
     list-style: none;
     padding-left: 0;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   a {
@@ -52,11 +55,12 @@ const FooterStyles = styled.footer`
   .brand-cont {
     margin-left: 0;
     margin-right: auto;
-    width: 125px;
+    /* width: 125px; */
+    width: 100%;
     margin-bottom: calc(var(--spacing) * 2);
 
     img {
-      width: 100%;
+      width: 125px;
       margin-bottom: calc(var(--spacing) * 2);
     }
 
@@ -68,12 +72,15 @@ const FooterStyles = styled.footer`
     address {
       font-style: normal;
       margin-bottom: var(--spacing);
+      font-size: 1rem;
     }
   }
 
   .footer-menu {
     padding: 0;
     margin-bottom: calc(var(--spacing) * 2);
+    /* width: calc(100% / 3);
+    flex-shrink: 0; */
 
     @media (min-width: 768px) {
       margin-bottom: 0;
@@ -89,16 +96,32 @@ const FooterStyles = styled.footer`
   .footer-menu,
   .footer-social {
     margin: 0;
+    width: 50%;
+    flex-shrink: 0;
+    margin-bottom: calc(var(--spacing) * 2);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 375px) {
+      width: calc(100% / 3);
+      margin-bottom: 0;
+    }
 
     @media (min-width: 768px) {
-      flex-basis: 175px;
+      flex-basis: 125px;
       flex-shrink: 0;
       flex-grow: 0;
+    }
+
+    @media (min-width: 1200px) {
+      flex-basis: 175px;
     }
   }
 
   .footer-social {
-    padding-top: var(--spacing);
+    /* padding-top: var(--spacing); */
     padding-left: 0;
 
     @media (min-width: 768px) {
@@ -159,16 +182,16 @@ const Footer = ({ Logo }) => {
         {/* If main menu items are being imported, render this */}
         {mainMenuItems && (
           <ul className="footer-menu">
-            {mainMenuItems.map((item, index) => (
-              <li key={`menuItem${index}`}>
-                <Link to={item.path}>{item.title}</Link>
-              </li>
-            ))}
-            {footerMenuItems.map((item, index) => (
-              <li key={`footerMenuItem${index}`}>
-                <Link to={item.path}>{item.title}</Link>
-              </li>
-            ))}
+            {/* First we want to filter out the Home menu item, then display the rest of them */}
+            {mainMenuItems
+              .filter(item => {
+                return item.title !== "home"
+              })
+              .map((item, index) => (
+                <li key={`menuItem${index}`}>
+                  <Link to={item.path}>{item.title}</Link>
+                </li>
+              ))}
           </ul>
         )}
 
@@ -184,6 +207,17 @@ const Footer = ({ Logo }) => {
                 </li>
               )
             })}
+          </ul>
+        )}
+
+        {/* If footer menu items are being imported, render this */}
+        {footerMenuItems && (
+          <ul className="footer-menu">
+            {footerMenuItems.map((item, index) => (
+              <li key={`footerMenuItem${index}`}>
+                <Link to={item.path}>{item.title}</Link>
+              </li>
+            ))}
           </ul>
         )}
       </div>
