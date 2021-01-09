@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
     --h4: 1.25rem;
     --h5: 1.15rem;
     --h6: 1rem;
+    --footerMenuItem: 0.85rem;
     --para: 1rem;
     --spacing: 1rem;
 
@@ -28,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
       --h4: 1.5rem;
       --h5: 1.25rem;
       --h6: 1.1rem;
+      --footerMenuItem: 1rem;
       --para: 1.1rem;
     }
 
