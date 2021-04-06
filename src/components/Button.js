@@ -1,14 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 
-const Button = props => {
-  return (
-    <ButtonWrapper type={props.type}>
-      {props.text ? props.text : "Read Article"}{" "}
-    </ButtonWrapper>
-  )
-}
-
 const ButtonWrapper = styled.button`
   border: none;
   background-color: transparent;
@@ -46,5 +38,13 @@ const ButtonWrapper = styled.button`
     text-decoration: none;
   }
 `
+
+const Button = props => {
+  return (
+    <ButtonWrapper type={props.type}>
+      {props.text ? props.text : "Read Article"}{" "}
+    </ButtonWrapper>
+  )
+}
 
 export default Button

@@ -6,12 +6,13 @@ import styled from "styled-components"
 import Banner from "../components/Banner"
 
 const FeaturedItems = styled.h4`
-  font-size: 1.2rem;
-  color: #939393;
+  font-size: var(--h5);
+  color: var(--primaryColor);
 `
 
-export default ({ data }) => {
+const HomePage = ({ data }) => {
   const { BlogPostQuery } = data
+
   return (
     <>
       <Seo />
@@ -27,8 +28,10 @@ export default ({ data }) => {
   )
 }
 
+export default HomePage
+
 export const query = graphql`
-  query {
+  {
     BlogPostQuery: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 3
@@ -42,9 +45,11 @@ export const query = graphql`
             path
             featuredImage {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                  layout: FULL_WIDTH
+                  placeholder: TRACED_SVG
+                  formats: [AUTO, WEBP]
+                )
               }
             }
             featuredImageAlt

@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Button from "./Button"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 
@@ -91,18 +90,20 @@ const BlogItemStyles = styled.article`
   }
 `
 
-const BlogItem = props => {
-  const { index } = props
-  const { excerpt } = props.nodeObj
-  const { title, date, path, featuredImageAlt } = props.nodeObj.frontmatter
-  const { fluid } = props.nodeObj.frontmatter.featuredImage.childImageSharp
+const BlogItem = ({ index, nodeObj }) => {
+  const {
+    excerpt,
+    frontmatter: { title, date, path, featuredImageAlt, featuredImage },
+  } = nodeObj
+  const image = getImage(featuredImage)
 
   return (
     <BlogItemStyles key={`blog-item-${index}`}>
-      {fluid && (
+      {image && (
         <figure>
           <Link to={path}>
-            <Img fluid={fluid} alt={featuredImageAlt} />
+            <span className="sr-only">{title}</span>
+            <GatsbyImage loading="lazy" image={image} alt={featuredImageAlt} />
           </Link>
         </figure>
       )}
@@ -119,7 +120,7 @@ const BlogItem = props => {
           {path && (
             <div className="meta">
               <Link className="btn-link" to={path}>
-                <Button />
+                Link here
               </Link>
               <h4>{date}</h4>
             </div>
@@ -131,7 +132,6 @@ const BlogItem = props => {
 }
 
 BlogItem.propTypes = {
-  fluid: PropTypes.object,
   alt: PropTypes.string,
   title: PropTypes.string,
   excerpt: PropTypes.string,

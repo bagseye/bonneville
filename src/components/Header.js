@@ -4,7 +4,7 @@ import Burger from "./Burger"
 import Navigation from "./Navigation"
 import { HeaderStyles } from "../styles/NavStyles"
 
-export default ({ Logo }) => {
+const Header = ({Logo}) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -25,7 +25,7 @@ export default ({ Logo }) => {
     })
   }, [])
 
-  return (
+  return ( 
     <HeaderStyles className={scroll ? "scrolled" : null}>
       <div className="logo-cont">
         <Link to="/">
@@ -35,5 +35,7 @@ export default ({ Logo }) => {
       <Burger />
       <Navigation />
     </HeaderStyles>
-  )
+   );
 }
+ 
+export default Header;

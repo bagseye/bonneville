@@ -16,11 +16,13 @@ module.exports = {
     authorSite: `https://www.morganbaker.dev`,
     twitterUsername: `@bonneville`,
     twitterURL: `https://twitter.com/`,
-    linkedInURL: `https://www.linkedin.com/in/morgan-baker-developer-inverness`,
+    linkedInURL: `https://www.linkedin.com`,
     githubURL: `https://github.com/bagseye`,
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {

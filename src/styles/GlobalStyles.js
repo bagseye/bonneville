@@ -1,6 +1,4 @@
 import { createGlobalStyle } from "styled-components"
-// import "typeface-lato"
-// import "typeface-playfair-display"
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -130,7 +128,41 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
 
     &-link {
+      border: none;
+      background-color: transparent;
+      font-size: var(--h5);
+      padding: 0;
+      display: flex;
+      font-family: var(--serif);
+      color: var(--charcoal);
       text-decoration: none;
+      position: relative;
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 0.1rem;
+        width: 100%;
+        background-color: var(--charcoal);
+        left: 0;
+        bottom: -0.25rem;
+        opacity: 1;
+        transition: opacity var(--transSlow);
+      }
+
+      &:hover,
+      &:focus {
+        cursor: pointer;
+
+        &:after {
+          opacity: 0.15;
+        }
+      }
+
+      &:visited {
+        text-decoration: none;
+      }
     }
 
     &:hover {

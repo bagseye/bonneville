@@ -1,12 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import SEO from "../components/SEO"
+import Seo from "../components/SEO"
 import BlogItem from "../components/BlogItem"
 import Button from "../components/Button"
 import { PagerStyles } from "../styles/JournalStyles"
 import Banner from "../components/Banner"
 
-const JournalTemplate = props => {
+const JournalTemplate = (props) => {
   const { edges } = props.data.allMarkdownRemark
 
   const { currentPage, numPages } = props.pageContext
@@ -17,7 +17,7 @@ const JournalTemplate = props => {
 
   return (
     <>
-      <SEO title="Read more about the projects at Bonneville" />
+      <Seo title="Read more about the projects at Bonneville" />
       <Banner content="Bonneville Journal" />
       <p>
         {" "}
@@ -82,9 +82,7 @@ export const journalQuery = graphql`
             tags
             featuredImage {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }

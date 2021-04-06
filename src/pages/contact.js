@@ -1,5 +1,5 @@
 import React from "react"
-import SEO from "../components/SEO"
+import Seo from "../components/SEO"
 import styled from "styled-components"
 import Button from "../components/Button"
 import Banner from "../components/Banner"
@@ -42,7 +42,7 @@ const FormTextArea = styled.textarea`
 const ContactPage = () => {
   return (
     <>
-      <SEO
+      <Seo
         title="Get in touch"
         description="Contact Bonneville about your next project"
       />
