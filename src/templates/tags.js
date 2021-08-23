@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import BlogItem from "../components/BlogItem"
 import Banner from "../components/Banner"
+import Layout from "../components/Layout"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -13,13 +14,13 @@ const Tags = ({ pageContext, data }) => {
 
   return (
     <>
-      <div>
+      <Layout>
         <Banner content={tagHeader} />
 
         {edges.map(({ node }, index) => {
           return <BlogItem nodeObj={node} index={index} />
         })}
-      </div>
+      </Layout>
     </>
   )
 }
@@ -49,30 +50,31 @@ Tags.propTypes = {
 
 export default Tags
 
-export const pageQuery = graphql`query ($tag: String) {
-  allMarkdownRemark(
-    limit: 2000
-    sort: {fields: [frontmatter___date], order: DESC}
-    filter: {frontmatter: {tags: {in: [$tag]}}}
-  ) {
-    totalCount
-    edges {
-      node {
-        id
-        frontmatter {
-          title
-          date(formatString: "MMMM DD, YY")
-          path
-          tags
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH)
+export const pageQuery = graphql`
+  query ($tag: String) {
+    allMarkdownRemark(
+      limit: 2000
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YY")
+            path
+            tags
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
             }
           }
+          excerpt
         }
-        excerpt
       }
     }
   }
-}
 `

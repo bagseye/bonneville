@@ -3,6 +3,7 @@ import Seo from "../components/SEO"
 import styled from "styled-components"
 import Button from "../components/Button"
 import Banner from "../components/Banner"
+import Layout from "../components/Layout"
 
 const Form = styled.div`
   margin: calc(var(--spacing) * 2) 0;
@@ -46,35 +47,37 @@ const ContactPage = () => {
         title="Get in touch"
         description="Contact Bonneville about your next project"
       />
-      <Banner content="Get in touch today" />
-      <p>
-        Fusce eu tincidunt felis. Ut auctor urna et nibh lacinia, id efficitur
-        ipsum blandit. Aliquam vulputate sapien sit amet ante varius vestibulum.
-        Morbi sodales, quam quis tincidunt venenatis, nibh lorem viverra velit,
-        ac ultrices ligula nisi id justo. Vestibulum imperdiet fermentum ante eu
-        fermentum. Sed et orci pretium, ullamcorper nisi nec, dignissim erat.
-        Sed eu consequat neque, interdum malesuada eros. Ut maximus gravida
-        malesuada.{" "}
-      </p>
-      <Form>
-        <form name="contact" netlify>
-          <p>
-            <FormLabel for="name">Your Name</FormLabel>
-            <FormInput type="text" name="name" />
-          </p>
-          <p>
-            <FormLabel for="email">Email Address</FormLabel>
-            <FormInput type="email" name="email" />
-          </p>
-          <p>
-            <FormLabel for="message">Your Message</FormLabel>
-            <FormTextArea type="text" name="message" />
-          </p>
-          <p>
-            <Button className="btn-link" text="Send Message" type="submit" />
-          </p>
-        </form>
-      </Form>
+      <Layout>
+        <Banner content="Get in touch today" />
+        <p>
+          Fusce eu tincidunt felis. Ut auctor urna et nibh lacinia, id efficitur
+          ipsum blandit. Aliquam vulputate sapien sit amet ante varius
+          vestibulum. Morbi sodales, quam quis tincidunt venenatis, nibh lorem
+          viverra velit, ac ultrices ligula nisi id justo. Vestibulum imperdiet
+          fermentum ante eu fermentum. Sed et orci pretium, ullamcorper nisi
+          nec, dignissim erat. Sed eu consequat neque, interdum malesuada eros.
+          Ut maximus gravida malesuada.{" "}
+        </p>
+        <Form>
+          <form name="contact" netlify>
+            <p>
+              <FormLabel for="name">Your Name</FormLabel>
+              <FormInput type="text" name="name" />
+            </p>
+            <p>
+              <FormLabel for="email">Email Address</FormLabel>
+              <FormInput type="email" name="email" />
+            </p>
+            <p>
+              <FormLabel for="message">Your Message</FormLabel>
+              <FormTextArea type="text" name="message" />
+            </p>
+            <p>
+              <Button className="btn-link" text="Send Message" type="submit" />
+            </p>
+          </form>
+        </Form>
+      </Layout>
     </>
   )
 }
