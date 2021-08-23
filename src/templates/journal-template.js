@@ -5,6 +5,7 @@ import BlogItem from "../components/BlogItem"
 import Button from "../components/Button"
 import { PagerStyles } from "../styles/JournalStyles"
 import Banner from "../components/Banner"
+import Layout from "../components/Layout"
 
 const JournalTemplate = (props) => {
   const { edges } = props.data.allMarkdownRemark
@@ -18,48 +19,51 @@ const JournalTemplate = (props) => {
   return (
     <>
       <Seo title="Read more about the projects at Bonneville" />
-      <Banner content="Bonneville Journal" />
-      <p>
-        {" "}
-        This is the Bonneville journal. Here you will find an elegant blog
-        system that will help you make announcements to your cleints with ease.
-      </p>
-      <p>
-        Each page displays a maximum of 10 posts before displaying the
-        pagination component. To change the maximum number of posts per page,
-        please visit gatsby-node.js.
-      </p>
-      {edges.map(({ node }, index) => {
-        return <BlogItem nodeObj={node} index={index} />
-      })}
-      {/* Paging controls
+      <Layout>
+        <Banner content="Bonneville Journal" />
+        <p>
+          {" "}
+          This is the Bonneville journal. Here you will find an elegant blog
+          system that will help you make announcements to your cleints with
+          ease.
+        </p>
+        <p>
+          Each page displays a maximum of 10 posts before displaying the
+          pagination component. To change the maximum number of posts per page,
+          please visit gatsby-node.js.
+        </p>
+        {edges.map(({ node }, index) => {
+          return <BlogItem nodeObj={node} index={index} />
+        })}
+        {/* Paging controls
         If there are multiple pages, show pager */}
-      {numPages > 1 && (
-        <PagerStyles>
-          <div className="btns">
-            {!isFirst && (
-              <Link to={`/journal/${prevPage}`} rel="prev">
-                <Button text="Previous" />
-              </Link>
-            )}
-            {!isLast && (
-              <Link to={`/journal/${nextPage}`} rel="next">
-                <Button text="Next" />
-              </Link>
-            )}
-          </div>
-          <div className="numbers">
-            {Array.from({ length: numPages }, (_, i) => (
-              <Link
-                key={`pagination-numbers${i + 1}`}
-                to={`/journal/${i === 0 ? "" : i + 1}`}
-              >
-                {i + 1}
-              </Link>
-            ))}
-          </div>
-        </PagerStyles>
-      )}
+        {numPages > 1 && (
+          <PagerStyles>
+            <div className="btns">
+              {!isFirst && (
+                <Link to={`/journal/${prevPage}`} rel="prev">
+                  <Button text="Previous" />
+                </Link>
+              )}
+              {!isLast && (
+                <Link to={`/journal/${nextPage}`} rel="next">
+                  <Button text="Next" />
+                </Link>
+              )}
+            </div>
+            <div className="numbers">
+              {Array.from({ length: numPages }, (_, i) => (
+                <Link
+                  key={`pagination-numbers${i + 1}`}
+                  to={`/journal/${i === 0 ? "" : i + 1}`}
+                >
+                  {i + 1}
+                </Link>
+              ))}
+            </div>
+          </PagerStyles>
+        )}
+      </Layout>
     </>
   )
 }
