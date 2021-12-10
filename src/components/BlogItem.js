@@ -84,7 +84,6 @@ const BlogItemStyles = styled.article`
 
     h4 {
       margin: 0;
-      font-size: var(--h5);
       color: var(--primaryColor);
     }
   }
@@ -120,7 +119,7 @@ const BlogItem = ({ index, nodeObj }) => {
           {path && (
             <div className="meta">
               <Link className="btn-link" to={path}>
-                Link here
+                Read
               </Link>
               <h4>{date}</h4>
             </div>

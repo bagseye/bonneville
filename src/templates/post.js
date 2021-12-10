@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby"
 import Seo from "../components/SEO"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Share from "../components/ShareContainer"
-import Button from "../components/Button"
 import Banner from "../components/Banner"
 import styled from "styled-components"
 import Layout from "../components/Layout"
@@ -103,7 +102,7 @@ export default function Template({ data }) {
           />
           <hr />
           <Link to="/journal" className="btn-link">
-            <Button text="Return to Journal Home" />
+            Return to Journal Home
           </Link>
 
           {/* If there are tags for the post, render this section */}

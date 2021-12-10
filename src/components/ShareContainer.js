@@ -11,8 +11,13 @@ const ShareArea = styled.div`
   }
 
   a {
+    transition: opacity var(--transSlow);
     &:after {
-      display: none;
+      display: none !important;
+    }
+
+    &:hover {
+      opacity: 0.5;
     }
   }
 `

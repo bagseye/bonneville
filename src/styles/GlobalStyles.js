@@ -130,9 +130,9 @@ const GlobalStyles = createGlobalStyle`
     &-link {
       border: none;
       background-color: transparent;
-      font-size: var(--h5);
+      font-size: var(--h4);
       padding: 0;
-      display: flex;
+      display: inline-block;
       font-family: var(--serif);
       color: var(--charcoal);
       text-decoration: none;
