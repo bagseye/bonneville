@@ -6,18 +6,28 @@ const AboutPage = () => (
     <Layout>
       <h1>What is Bonneville?</h1>
       <p>
-        Vestibulum rhoncus quam sit amet purus convallis vestibulum.
-        Pellentesque faucibus, augue id auctor venenatis, tortor eros dapibus
-        ante, et pulvinar libero justo sit amet magna. Suspendisse ac dui lorem.
-        Donec elementum euismod bibendum. Sed eget accumsan dolor.
+        Bonneville is a GatsbyJS theme developed & maintained by{" "}
+        <a href="https://www.morganbaker.dev" target="_blank" rel="noreferrer">
+          Morgan Baker
+        </a>
+        . Built using ReactJS architecture, it benefits from an app-like
+        experience with easy to maintain components. If you use Bonneville as
+        the base of your next project you will find expanding its struture
+        simple to extend.
       </p>
+      <h3>Getting Started</h3>
       <p>
-        Mauris luctus metus sed mauris ultrices, vel ullamcorper purus faucibus.
-        Vestibulum consectetur eros elit, nec molestie felis cursus eleifend.
-        Morbi at nisi sollicitudin, vestibulum nibh eget, porttitor diam.
-        Phasellus vestibulum quis lacus nec mollis. Mauris eget sollicitudin
-        enim. Cras fringilla aliquam tellus. Integer eget purus porttitor,
-        pellentesque magna vitae, suscipit eros.
+        If you're new to web development or GatsbyJS the best place for you to
+        start is with their{" "}
+        <a
+          href="https://www.gatsbyjs.com/docs"
+          target="_blank"
+          rel="noreferrer"
+        >
+          excellent documentation
+        </a>
+        . Here you will find well-written guides for absolute beginners to
+        Javascript experts.
       </p>
       <h2>Mauris nec pulvinar est</h2>
       <p>
