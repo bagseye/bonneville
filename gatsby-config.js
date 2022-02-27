@@ -16,7 +16,7 @@ module.exports = {
     authorSite: `https://www.morganbaker.dev`,
     twitterUsername: `@bonneville`,
     twitterURL: `https://twitter.com/`,
-    linkedInURL: `https://www.linkedin.com`,
+    linkedInURL: `https://www.linkedin.com/in/morgan-baker-development/`,
     githubURL: `https://github.com/bagseye`,
   },
   plugins: [
