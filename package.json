@@ -31,7 +31,7 @@
     "gatsby-source-filesystem": "^4.3.0",
     "gatsby-transformer-remark": "^5.3.0",
     "gatsby-transformer-sharp": "^4.3.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-cookie-consent": "^7.0.0",
